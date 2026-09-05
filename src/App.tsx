@@ -13,6 +13,7 @@ import CarList from './components/CarList';
 import GallerySection from './components/GallerySection';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
+import OneWayModal from './components/OneWayModal';
 import { Car } from './types';
 import { CARS } from './data/cars';
 import { ChevronUp } from 'lucide-react';
@@ -25,6 +26,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showOneWayModal, setShowOneWayModal] = useState(false);
   const [lang, setLang] = useState<'ID' | 'EN'>('ID');
   
   const t = TRANSLATIONS[lang];
@@ -120,6 +122,7 @@ export default function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         onBookingClick={() => setSelectedCar(CARS[0])}
+        onOneWayClick={() => setShowOneWayModal(true)}
       />
 
       {/* Main Page Layout Flow */}
@@ -146,7 +149,7 @@ export default function App() {
             />
 
             {/* 4. Section: Layanan Tambahan */}
-            <ExtraServices lang={lang} />
+            <ExtraServices lang={lang} onOneWayClick={() => setShowOneWayModal(true)} />
           </>
         ) : currentPage === 'about' ? (
           <div className="pt-24 sm:pt-28">
@@ -172,7 +175,7 @@ export default function App() {
             <About lang={lang} />
 
             {/* Extra Services Complementary Section */}
-            <ExtraServices lang={lang} />
+            <ExtraServices lang={lang} onOneWayClick={() => setShowOneWayModal(true)} />
           </div>
         ) : currentPage === 'tours' ? (
           <div className="pt-28 sm:pt-32">
@@ -180,7 +183,7 @@ export default function App() {
             <ToursList lang={lang} isLanding={false} />
             
             {/* Layanan Tambahan */}
-            <ExtraServices lang={lang} />
+            <ExtraServices lang={lang} onOneWayClick={() => setShowOneWayModal(true)} />
           </div>
         ) : currentPage === 'rentals' ? (
           <div className="pt-28 sm:pt-32">
@@ -188,7 +191,7 @@ export default function App() {
             <CarList onSelectCar={handleSelectCar} lang={lang} />
             
             {/* Layanan Tambahan */}
-            <ExtraServices lang={lang} />
+            <ExtraServices lang={lang} onOneWayClick={() => setShowOneWayModal(true)} />
           </div>
         ) : (
           <div className="pt-28 sm:pt-32">
@@ -204,6 +207,9 @@ export default function App() {
 
       {/* Interactive Booking Popup */}
       <BookingModal car={selectedCar} onClose={() => setSelectedCar(null)} lang={lang} onCarChange={setSelectedCar} />
+
+      {/* Interactive One Way Routes Popup */}
+      <OneWayModal isOpen={showOneWayModal} onClose={() => setShowOneWayModal(false)} lang={lang} />
 
       {/* Sticky Fast-Action Sidebar on Far Right of Screen */}
       <div 

@@ -5,9 +5,10 @@ import { openWhatsApp } from '../utils/whatsapp';
 
 interface ExtraServicesProps {
   lang: 'ID' | 'EN';
+  onOneWayClick?: () => void;
 }
 
-export default function ExtraServices({ lang }: ExtraServicesProps) {
+export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProps) {
   const services = [
     {
       id: 'airport-transfer',
@@ -172,14 +173,33 @@ export default function ExtraServices({ lang }: ExtraServicesProps) {
 
               {/* Action Button */}
               <div className="mt-8 pt-4 border-t border-gray-100">
-                <button
-                  onClick={() => handleWhatsApp(service.waMessage)}
-                  className="w-full py-3 px-4 rounded-xl bg-gray-900 hover:bg-luxury-gold text-white font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm group-hover:shadow"
-                >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>{service.priceText}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {service.id === 'one-way-transport' && onOneWayClick ? (
+                  <div className="space-y-2">
+                    <button
+                      onClick={onOneWayClick}
+                      className="w-full py-3 px-4 rounded-xl bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                      <span>{lang === 'EN' ? 'View 9 Route Options (Senaru PP)' : 'Pilih 9 Rute Senaru PP'}</span>
+                    </button>
+                    <button
+                      onClick={() => handleWhatsApp(service.waMessage)}
+                      className="w-full py-2.5 px-4 rounded-xl border border-gray-200 hover:border-luxury-gold text-gray-700 hover:text-luxury-gold font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <PhoneCall className="w-3.5 h-3.5" />
+                      <span>{service.priceText}</span>
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => handleWhatsApp(service.waMessage)}
+                    className="w-full py-3 px-4 rounded-xl bg-gray-900 hover:bg-luxury-gold text-white font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm group-hover:shadow"
+                  >
+                    <PhoneCall className="w-4 h-4" />
+                    <span>{service.priceText}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
