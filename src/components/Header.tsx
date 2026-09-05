@@ -136,8 +136,12 @@ export default function Header({
               className="flex items-center cursor-pointer group py-1 gap-2.5 sm:gap-3"
               id="header-logo"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
-                R
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-amber-200/50 bg-white shrink-0">
+                <img 
+                  src="/logo.png" 
+                  alt="Rinjani Transport Logo" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-display font-extrabold text-base sm:text-lg text-gray-900 leading-none tracking-tight group-hover:text-luxury-gold transition-colors">

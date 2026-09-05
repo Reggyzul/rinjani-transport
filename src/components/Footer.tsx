@@ -25,8 +25,12 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-white font-black text-2xl shadow-lg">
-                R
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden flex items-center justify-center shadow-lg border border-luxury-gold/30 bg-white shrink-0">
+                <img 
+                  src="/logo.png" 
+                  alt="Rinjani Transport Logo" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-black text-xl text-white tracking-tight">
