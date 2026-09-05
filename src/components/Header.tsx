@@ -119,15 +119,15 @@ export default function Header({
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-16 sm:h-[68px]">
             
             {/* Logo */}
             <div 
               onClick={() => handlePageClick('home')}
-              className="flex items-center cursor-pointer group py-1 gap-3 sm:gap-3.5"
+              className="flex items-center cursor-pointer group py-1 gap-2.5 sm:gap-3"
               id="header-logo"
             >
-              <div className="w-13 h-13 sm:w-16 sm:h-16 rounded-full overflow-hidden flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border-2 border-amber-300/50 bg-white shrink-0 p-0.5">
+              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-amber-300/60 bg-white shrink-0 p-0.5">
                 <img 
                   src="/logo.png" 
                   alt="Rinjani Transport Logo" 
@@ -135,10 +135,10 @@ export default function Header({
                 />
               </div>
               <div className="flex flex-col text-left justify-center">
-                <span className="font-display font-black text-lg sm:text-2xl text-gray-900 leading-tight tracking-tight group-hover:text-luxury-gold transition-colors">
+                <span className="font-display font-black text-base sm:text-xl text-gray-900 leading-none tracking-tight group-hover:text-luxury-gold transition-colors">
                   RINJANI TRANSPORT
                 </span>
-                <span className="text-[10px] sm:text-xs font-extrabold text-luxury-gold uppercase tracking-[0.18em] mt-0.5">
+                <span className="text-[9px] sm:text-[10px] font-bold text-luxury-gold uppercase tracking-[0.16em] mt-1">
                   Lombok Tour & Travel
                 </span>
               </div>
@@ -259,18 +259,6 @@ export default function Header({
                   )}
                 </AnimatePresence>
               </div>
-
-              {/* One Way Menu Item */}
-              <button
-                onClick={onOneWayClick}
-                className="font-display text-sm font-semibold transition-colors cursor-pointer relative py-2 text-gray-700 hover:text-luxury-gold flex items-center gap-1.5 group"
-                id="nav-oneway-btn"
-              >
-                <span>One Way</span>
-                <span className="bg-amber-100 text-luxury-gold text-[10px] font-extrabold px-1.5 py-0.5 rounded-full border border-amber-200 uppercase tracking-tight group-hover:bg-luxury-gold group-hover:text-white transition-colors">
-                  9 Rute
-                </span>
-              </button>
 
               {/* Galeri (Gallery Page) */}
               <button
@@ -447,21 +435,6 @@ export default function Header({
                   </div>
                 )}
               </div>
-
-              {/* Mobile One Way */}
-              <button
-                onClick={() => {
-                  onOneWayClick();
-                  setIsOpen(false);
-                }}
-                className="w-full text-left px-4 py-2.5 font-display text-sm font-semibold rounded-lg transition-colors cursor-pointer text-gray-700 hover:bg-gray-50 flex items-center justify-between"
-                id="mobile-nav-oneway"
-              >
-                <span>{lang === 'EN' ? 'One Way Routes (Senaru PP)' : 'One Way (9 Rute Senaru PP)'}</span>
-                <span className="bg-amber-100 text-luxury-gold text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-amber-200">
-                  9 Rute
-                </span>
-              </button>
 
               {/* Mobile Galeri */}
               <button
