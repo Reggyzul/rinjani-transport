@@ -12,35 +12,15 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
   const t = TRANSLATIONS[lang];
 
   return (
-    <footer id="contact" className="bg-luxury-black text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden font-sans">
+    <footer id="contact" className="bg-luxury-black text-white pt-14 pb-8 border-t border-white/5 relative overflow-hidden font-sans">
       
       {/* Absolute background accent line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Upper pre-footer callout section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-white/10 items-center">
-          <div className="space-y-2 text-left">
-            <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-luxury-gold animate-pulse">
-              RINJANI TRANSPORT LOMBOK
-            </h3>
-            <p className="font-sans text-sm text-gray-300">
-              {t.footer_pre_desc}
-            </p>
-            <p className="font-display font-semibold text-xs tracking-wider text-luxury-gold uppercase">
-              Your Journey, Our Priority.
-            </p>
-          </div>
-          <div className="flex justify-start md:justify-end">
-            <div className="font-display font-black text-2xl text-white/40 tracking-wider">
-              LOMBOK, NTB
-            </div>
-          </div>
-        </div>
-
         {/* Core Footer grid columns */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12">
           
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">

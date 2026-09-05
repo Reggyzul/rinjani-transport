@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import { Car } from './types';
 import { CARS } from './data/cars';
-import { ChevronUp, ArrowRight } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from './utils/translations';
 import { openWhatsApp } from './utils/whatsapp';
@@ -147,32 +147,6 @@ export default function App() {
 
             {/* 4. Section: Layanan Tambahan */}
             <ExtraServices lang={lang} />
-
-            {/* 5. Profil Perusahaan Callout -> Menuju Halaman Tentang Kami */}
-            <section className="py-14 bg-gradient-to-r from-gray-900 via-luxury-black to-gray-900 text-white border-t border-b border-luxury-gold/20 font-sans">
-              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="space-y-2 text-center md:text-left">
-                  <span className="text-luxury-gold font-display font-bold text-xs uppercase tracking-[0.2em] bg-white/5 border border-luxury-gold/30 px-3 py-1 rounded-full inline-block">
-                    {lang === 'EN' ? 'OFFICIAL COMPANY PROFILE' : 'PROFIL PERUSAHAAN'}
-                  </span>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-white">
-                    {lang === 'EN' ? 'Get to Know Rinjani Transport' : 'Kenal Lebih Dekat Rinjani Transport'}
-                  </h3>
-                  <p className="font-sans text-xs sm:text-sm text-gray-300 max-w-xl leading-relaxed">
-                    {lang === 'EN'
-                      ? 'Discover our company background, mission & vision, legal transport licenses, and why travelers trust us across Lombok.'
-                      : 'Pelajari profil lengkap, visi & misi, legalitas armada berizin resmi, serta dedikasi kami dalam mengutamakan kenyamanan liburan Anda di Lombok.'}
-                  </p>
-                </div>
-                <button
-                  onClick={() => handleNavClick('about')}
-                  className="px-7 py-3.5 bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center gap-2.5 cursor-pointer shrink-0 group"
-                >
-                  <span>{lang === 'EN' ? 'Explore About Us' : 'Buka Halaman Tentang Kami'}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </section>
           </>
         ) : currentPage === 'about' ? (
           <div className="pt-24 sm:pt-28">
