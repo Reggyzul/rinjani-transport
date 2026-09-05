@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CARS } from '../data/cars';
 import { Car } from '../types';
 import { motion } from 'motion/react';
-import { Calendar, Users, Settings, MapPin, ChevronDown } from 'lucide-react';
+import { Calendar, Users, Settings, MapPin, ChevronDown, Star } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
@@ -81,7 +81,7 @@ export default function CarList({ onSelectCar, lang, limit, onViewMore }: CarLis
 
                 {/* Trust Rating Overlay */}
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-sm">
-                  <span className="text-yellow-500 font-bold text-xs">★</span>
+                  <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
                   <span className="font-display font-bold text-xs text-gray-900">{car.rating.toFixed(1)}</span>
                 </div>
               </div>

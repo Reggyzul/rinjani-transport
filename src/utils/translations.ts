@@ -91,11 +91,11 @@ export const TRANSLATIONS = {
     steps_tag: "CARA PEMESANAN MUDAH",
     steps_title: "3 Langkah Cepat Reservasi",
     steps_desc: "Sistem pemesanan yang praktis dan responsif untuk memastikan perjalanan Anda di Lombok terencana sempurna.",
-    step_1_title: "Pilih Armada / Destinasi 📲",
+    step_1_title: "Pilih Armada / Destinasi",
     step_1_desc: "Tentukan jenis kendaraan (Avanza, Innova, Hiace) atau tujuan destinasi wisata yang Anda butuhkan.",
-    step_2_title: "Konsultasi & Booking 💬",
+    step_2_title: "Konsultasi & Booking",
     step_2_desc: "Hubungi WhatsApp kami di 0859-6428-0931 untuk konfirmasi tanggal, jam jemput, dan rute perjalanan.",
-    step_3_title: "Nikmati Perjalanan 🛣️",
+    step_3_title: "Nikmati Perjalanan",
     step_3_desc: "Driver kami menjemput tepat waktu di bandara, hotel, atau pelabuhan dan mengantar Anda dengan aman.",
 
     // Testimonials
@@ -244,11 +244,11 @@ export const TRANSLATIONS = {
     steps_tag: "EASY BOOKING PROCESS",
     steps_title: "3 Simple Steps to Book",
     steps_desc: "A responsive and straightforward booking experience to ensure your Lombok trip is hassle-free.",
-    step_1_title: "Choose Vehicle / Destination 📲",
+    step_1_title: "Choose Vehicle / Destination",
     step_1_desc: "Select the car (Avanza, Innova, Hiace) or the destination itinerary suitable for your group.",
-    step_2_title: "Consult & Confirm 💬",
+    step_2_title: "Consult & Confirm",
     step_2_desc: "Chat with our WhatsApp team at +62 859-6428-0931 to confirm schedule, pick-up time, and location.",
-    step_3_title: "Enjoy the Journey 🛣️",
+    step_3_title: "Enjoy the Journey",
     step_3_desc: "Our friendly driver picks you up on time and drives you comfortably to your destination.",
 
     // Testimonials

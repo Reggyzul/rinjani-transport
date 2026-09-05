@@ -79,48 +79,48 @@ export default function BookingModal({ car, onClose, lang, onCarChange }: Bookin
       textTemplate = `Hello Rinjani Transport, I would like to book the following vehicle:
 
 *VEHICLE MODEL:*
-👉 *${car.name}*
+- ${car.name}
 
 *SCHEDULE DETAILS:*
-🗓 Start Date: ${startDate}
-⏰ Pickup Time: ${pickupTime}
-⏳ Rental Duration: ${duration} Day(s)
+- Start Date: ${startDate}
+- Pickup Time: ${pickupTime}
+- Rental Duration: ${duration} Day(s)
 
 *CUSTOMER & PICKUP DETAILS:*
-👤 Name: ${name}
-📞 WhatsApp Number: ${phone}
-📍 Pickup Address: ${pickupAddress}
-📝 Special Notes: ${notes || '-'}
+- Name: ${name}
+- WhatsApp Number: ${phone}
+- Pickup Address: ${pickupAddress}
+- Special Notes: ${notes || '-'}
 
 *EXTRA SERVICES:*
-🅿️ All-In Package (Fuel, Parking, Driver Meal): ${inclusionText}
+- All-In Package (Fuel, Parking, Driver Meal): ${inclusionText}
 
 *ESTIMATED COST:*
-💰 Price: Contact for best quote
+- Price: Contact for best quote
 
 Please confirm availability. Thank you!`;
     } else {
       textTemplate = `Halo Rinjani Transport, saya ingin memesan armada berikut:
 
 *MODEL ARMADA:*
-👉 *${car.name}*
+- ${car.name}
 
 *JADWAL PERJALANAN:*
-🗓 Tanggal Jemput: ${startDate}
-⏰ Jam Jemput: ${pickupTime}
-⏳ Durasi Sewa: ${duration} Hari
+- Tanggal Jemput: ${startDate}
+- Jam Jemput: ${pickupTime}
+- Durasi Sewa: ${duration} Hari
 
 *DATA PELANGGAN & PENJEMPUTAN:*
-👤 Nama: ${name}
-📞 No. WhatsApp: ${phone}
-📍 Alamat Jemput: ${pickupAddress}
-📝 Catatan Khusus: ${notes || '-'}
+- Nama: ${name}
+- No. WhatsApp: ${phone}
+- Alamat Jemput: ${pickupAddress}
+- Catatan Khusus: ${notes || '-'}
 
 *LAYANAN TAMBAHAN:*
-🅿️ Paket All-In (BBM, Parkir, Makan Driver): ${inclusionText}
+- Paket All-In (BBM, Parkir, Makan Driver): ${inclusionText}
 
 *ESTIMASI BIAYA:*
-💰 Tarif: Hubungi kontak kami untuk penawaran terbaik
+- Tarif: Hubungi kontak kami untuk penawaran terbaik
 
 Mohon konfirmasi ketersediaan unit. Terima kasih!`;
     }

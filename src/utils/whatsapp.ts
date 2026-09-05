@@ -6,12 +6,12 @@ export const DEFAULT_WA_TEMPLATE = `*Rinjani Transport Lombok*
 
 Halo Rinjani Transport, saya ingin konsultasi layanan transportasi & wisata di Lombok:
 
-📍 *Kebutuhan Layanan:*
-👉 Airport Transfer (Bandara Lombok)
-👉 Hotel & Pelabuhan Transfer (Bangsal / Gili)
-👉 Rental Mobil + Driver (Innova / Hiace / Avanza)
-👉 Wisata & Tour Lombok (Sembalun / Benang Kelambu / Tetebatu)
-👉 One Way Transport
+*Kebutuhan Layanan:*
+- Airport Transfer (Bandara Lombok)
+- Hotel & Pelabuhan Transfer (Bangsal / Gili)
+- Rental Mobil + Driver (Innova / Hiace / Avanza)
+- Wisata & Tour Lombok (Whale Shark / Sembalun / Rinjani / Benang Kelambu / Tetebatu)
+- One Way Transport
 
 Mohon informasi ketersediaan unit dan penawaran harga terbaik. Terima kasih!`;
 

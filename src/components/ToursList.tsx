@@ -1,42 +1,102 @@
 import React, { useState } from 'react';
-import { Clock, Compass, MapPin, Sparkles, ArrowRight } from 'lucide-react';
-import { TOUR_PACKAGES, TourPackage } from '../data/tours';
+import { Clock, Compass, MapPin, Sparkles, ArrowRight, ShieldCheck, CheckCircle2, Filter } from 'lucide-react';
+import { TOUR_PACKAGES, TourPackage, LANDING_PAGE_PACKAGES } from '../data/tours';
 import TourDetailModal from './TourDetailModal';
 import { motion } from 'motion/react';
 
 interface ToursListProps {
   lang: 'ID' | 'EN';
+  isLanding?: boolean;
+  onViewAllTours?: () => void;
 }
 
-export default function ToursList({ lang }: ToursListProps) {
+export default function ToursList({ lang, isLanding = false, onViewAllTours }: ToursListProps) {
   const [selectedTour, setSelectedTour] = useState<TourPackage | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'flagship' | 'nature'>('all');
+
+  const displayedPackages = isLanding 
+    ? LANDING_PAGE_PACKAGES 
+    : (activeFilter === 'all' 
+        ? TOUR_PACKAGES 
+        : activeFilter === 'flagship' 
+          ? TOUR_PACKAGES.filter(p => p.category === 'flagship') 
+          : TOUR_PACKAGES.filter(p => p.category === 'nature'));
 
   return (
     <section id="tours" className="py-20 bg-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="font-display font-bold text-xs sm:text-sm text-luxury-gold tracking-widest uppercase bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200/60 inline-block">
-            {lang === 'EN' ? 'LOMBOK TOUR DESTINATIONS' : 'DESTINASI WISATA LOMBOK'}
+            {isLanding
+              ? (lang === 'EN' ? 'FEATURED TOUR PACKAGES' : 'PAKET TOUR UNGGULAN')
+              : (lang === 'EN' ? 'COMPLETE TOUR PACKAGES AND DESTINATIONS' : 'PAKET TOUR DAN DESTINASI WISATA LOMBOK')}
           </span>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 tracking-tight uppercase">
-            {lang === 'EN' ? 'EXPLORE POPULAR LOMBOK DESTINATIONS' : 'DESTINASI WISATA YANG DILAYANI'}
+            {isLanding
+              ? (lang === 'EN' ? 'EXCLUSIVE LOMBOK TOUR PACKAGES' : 'PILIHAN PAKET TOUR LOMBOK')
+              : (lang === 'EN' ? 'EXPLORE ALL TOUR PACKAGES AND HIGHLIGHTS' : 'SEMUA PAKET TOUR DAN DESTINASI WISATA')}
           </h2>
           
           <div className="w-16 h-1 bg-luxury-gold rounded-full mx-auto my-3" />
           
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
-            {lang === 'EN' 
-              ? 'Discover the natural wonders of Lombok from Sembalun highlands, refreshing waterfalls, to scenic hills at the foot of Mount Rinjani.' 
-              : 'Jelajahi keindahan alam Lombok mulai dari air terjun asri, pedesaan sejuk Tetebatu, hingga panorama perbukitan spektakuler Sembalun.'}
+            {isLanding
+              ? (lang === 'EN'
+                  ? 'Private, hassle-free travel experiences from whale shark snorkeling to Mount Rinjani summit expeditions, with complete hotel pick-up and drop-off in Lombok.'
+                  : 'Pengalaman wisata privat terbaik mulai dari snorkeling hiu paus hingga ekspedisi puncak Gunung Rinjani, dengan fasilitas lengkap antar-jemput langsung dari hotel Anda di Lombok.')
+              : (lang === 'EN'
+                  ? 'Discover our full collection of mountain trekking expeditions, island adventures, and scenic nature day trips in Lombok.'
+                  : 'Jelajahi seluruh pilihan paket pendakian gunung, wisata bahari hiu paus, dan perjalanan wisata alam sejuk di Lombok.')}
           </p>
         </div>
 
-        {/* Tour Cards Grid: 7 items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TOUR_PACKAGES.map((pkg, index) => (
+        {/* Filter Tabs for Dedicated Page */}
+        {!isLanding && (
+          <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-12">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-5 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2 border ${
+                activeFilter === 'all'
+                  ? 'bg-luxury-black text-luxury-gold border-luxury-gold shadow-md'
+                  : 'bg-white text-gray-600 border-gray-200 hover:border-amber-300 hover:text-luxury-gold'
+              }`}
+            >
+              <Filter className="w-3.5 h-3.5" />
+              <span>{lang === 'EN' ? 'All Packages (9)' : 'Semua Paket (9)'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveFilter('flagship')}
+              className={`px-5 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2 border ${
+                activeFilter === 'flagship'
+                  ? 'bg-luxury-black text-luxury-gold border-luxury-gold shadow-md'
+                  : 'bg-white text-gray-600 border-gray-200 hover:border-amber-300 hover:text-luxury-gold'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{lang === 'EN' ? 'Flagship Packages (4)' : 'Paket Tour Utama (4)'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveFilter('nature')}
+              className={`px-5 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2 border ${
+                activeFilter === 'nature'
+                  ? 'bg-luxury-black text-luxury-gold border-luxury-gold shadow-md'
+                  : 'bg-white text-gray-600 border-gray-200 hover:border-amber-300 hover:text-luxury-gold'
+              }`}
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              <span>{lang === 'EN' ? 'Nature Day Tours (5)' : 'Destinasi Wisata Alam (5)'}</span>
+            </button>
+          </div>
+        )}
+
+        {/* Tour Cards Grid: 4 items on landing page, 2x2 or 4 grid */}
+        <div className={`grid grid-cols-1 md:grid-cols-2 ${isLanding ? 'lg:grid-cols-4 gap-6' : 'lg:grid-cols-3 gap-8'}`}>
+          {displayedPackages.map((pkg, index) => (
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +105,7 @@ export default function ToursList({ lang }: ToursListProps) {
               key={pkg.id}
               className="bg-white rounded-3xl shadow-sm border border-gray-200/80 hover:border-luxury-gold/40 hover:shadow-xl transition-all duration-300 flex flex-col h-full group overflow-hidden"
             >
-              {/* Image Container & Floating Badge */}
+              {/* Image Container and Floating Badge */}
               <div 
                 className="relative overflow-hidden aspect-[4/3] bg-gray-100 cursor-pointer"
                 onClick={() => setSelectedTour(pkg)}
@@ -55,29 +115,29 @@ export default function ToursList({ lang }: ToursListProps) {
                   alt={pkg.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                 {/* Badge on Top Right */}
                 {pkg.badge && (
-                  <span className="absolute top-4 right-4 bg-luxury-gold text-white px-3 py-1 rounded-lg font-display font-extrabold text-[11px] uppercase shadow-md tracking-wider">
+                  <span className="absolute top-3.5 right-3.5 bg-luxury-gold text-white px-2.5 py-1 rounded-lg font-display font-extrabold text-[10px] uppercase shadow-md tracking-wider">
                     {pkg.badge}
                   </span>
                 )}
 
                 {/* Duration on Bottom Left */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-white/90 text-xs font-semibold bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg">
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-white/90 text-xs font-semibold bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-luxury-gold" />
                   <span>{lang === 'EN' ? pkg.durationEn || pkg.duration : pkg.duration}</span>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 flex flex-col flex-grow text-left space-y-3">
+              <div className="p-5 sm:p-6 flex flex-col flex-grow text-left space-y-3">
                 
                 {/* Package Title */}
                 <h3 
                   onClick={() => setSelectedTour(pkg)}
-                  className="font-display font-bold text-xl text-gray-900 group-hover:text-luxury-gold transition-colors cursor-pointer leading-snug"
+                  className="font-display font-bold text-lg sm:text-xl text-gray-900 group-hover:text-luxury-gold transition-colors cursor-pointer leading-snug line-clamp-2"
                 >
                   {lang === 'EN' ? pkg.titleEn || pkg.title : pkg.title}
                 </h3>
@@ -88,38 +148,32 @@ export default function ToursList({ lang }: ToursListProps) {
                 </p>
 
                 {/* Description Text */}
-                <p className="font-sans text-gray-600 text-xs sm:text-sm leading-relaxed flex-grow">
+                <p className="font-sans text-gray-600 text-xs sm:text-sm leading-relaxed flex-grow line-clamp-3">
                   {lang === 'EN' ? pkg.descriptionEn || pkg.description : pkg.description}
                 </p>
 
-                {/* Package Tier Badge Row */}
-                <div className="bg-amber-50/50 rounded-2xl p-3 border border-amber-100/80 space-y-1.5 mt-auto">
-                  <span className="font-display font-bold text-[10px] uppercase text-luxury-gold tracking-wider block">
-                    {lang === 'EN' ? 'Available Package Tiers:' : 'Tersedia Pilihan Paket:'}
+                {/* Key Inclusions Snippet */}
+                <div className="space-y-1 pt-1 border-t border-gray-100">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block">
+                    {lang === 'EN' ? 'Key Inclusions:' : 'Fasilitas Utama:'}
                   </span>
-                  <div className="flex flex-wrap gap-1.5 text-[10px] font-bold">
-                    <span className="bg-white px-2 py-0.5 rounded-md border border-amber-200 text-gray-700">
-                      Standard
-                    </span>
-                    <span className="bg-amber-100/80 px-2 py-0.5 rounded-md border border-amber-300 text-luxury-gold">
-                      Premium
-                    </span>
-                    <span className="bg-luxury-gold text-white px-2 py-0.5 rounded-md">
-                      VIP All-In
-                    </span>
+                  <div className="space-y-1">
+                    {pkg.included.slice(0, 2).map((inc, i) => (
+                      <div key={i} className="flex items-center gap-1.5 text-xs text-gray-600 truncate">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-luxury-gold shrink-0" />
+                        <span className="truncate">{inc}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Divider Line */}
-                <hr className="border-t border-gray-100 pt-1" />
-
                 {/* Card Footer Row */}
-                <div className="flex items-center justify-between pt-1">
+                <div className="pt-2 mt-auto border-t border-gray-100">
                   <button
                     onClick={() => setSelectedTour(pkg)}
                     className="w-full py-2.5 px-4 rounded-xl bg-gray-900 hover:bg-luxury-gold text-white font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm group-hover:shadow"
                   >
-                    <span>{lang === 'EN' ? 'View Details & Book' : 'Lihat Detail & Pesan'}</span>
+                    <span>{lang === 'EN' ? 'View Details and Itinerary' : 'Lihat Detail dan Jadwal'}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -128,6 +182,19 @@ export default function ToursList({ lang }: ToursListProps) {
             </motion.div>
           ))}
         </div>
+
+        {/* See More Packages Button on Landing Page */}
+        {isLanding && onViewAllTours && (
+          <div className="mt-12 text-center flex justify-center">
+            <button
+              onClick={onViewAllTours}
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-white border border-gray-200/80 hover:border-luxury-gold text-gray-800 hover:text-luxury-gold font-display font-semibold text-sm rounded-full shadow-sm hover:shadow-md transition-all cursor-pointer group"
+            >
+              <span>{lang === 'EN' ? 'View All Tour Packages and Destinations' : 'Lihat Semua Pilihan Paket dan Destinasi'}</span>
+              <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-luxury-gold group-hover:translate-x-1 transition-all" />
+            </button>
+          </div>
+        )}
 
       </div>
 

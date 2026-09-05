@@ -8,7 +8,9 @@ import {
   X, 
   Compass, 
   Car, 
-  Briefcase
+  Briefcase,
+  MapPin,
+  Sparkles
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -101,9 +103,15 @@ export default function Header({
       <div className="bg-gray-900 text-gray-300 text-[11px] py-1.5 px-4 hidden sm:block border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span>📍 {t.topbar_address}</span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-luxury-gold shrink-0" />
+              <span>{t.topbar_address}</span>
+            </span>
             <span className="text-gray-500">|</span>
-            <span className="text-luxury-gold font-medium">⚡ {t.topbar_service}</span>
+            <span className="text-luxury-gold font-medium flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
+              <span>{t.topbar_service}</span>
+            </span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-gray-300 font-semibold">{t.topbar_whatsapp}</span>

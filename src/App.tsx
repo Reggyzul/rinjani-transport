@@ -138,8 +138,12 @@ export default function App() {
               onViewMore={() => handleNavClick('rentals')}
             />
 
-            {/* 3. Section: Destinasi Wisata Lombok */}
-            <ToursList lang={lang} />
+            {/* 3. Section: 4 Paket Tour Pilihan */}
+            <ToursList 
+              lang={lang} 
+              isLanding={true} 
+              onViewAllTours={() => handleNavClick('tours')} 
+            />
 
             {/* 4. Section: Layanan Tambahan */}
             <ExtraServices lang={lang} />
@@ -199,7 +203,7 @@ export default function App() {
         ) : currentPage === 'tours' ? (
           <div className="pt-28 sm:pt-32">
             {/* Tours View */}
-            <ToursList lang={lang} />
+            <ToursList lang={lang} isLanding={false} />
             
             {/* Layanan Tambahan */}
             <ExtraServices lang={lang} />
