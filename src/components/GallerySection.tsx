@@ -24,7 +24,7 @@ export interface GalleryItem {
   image: string;
   title: string;
   titleEn?: string;
-  category: 'tour' | 'bus' | 'beach';
+  category: 'tour' | 'bus' | 'nature';
   location: string;
   tag: string;
   description: string;
@@ -32,79 +32,79 @@ export interface GalleryItem {
 
 export default function GallerySection({ lang }: GallerySectionProps) {
   const t = TRANSLATIONS[lang];
-  const [activeFilter, setActiveFilter] = useState<'all' | 'tour' | 'bus' | 'beach'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'tour' | 'bus' | 'nature'>('all');
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   const galleryData: GalleryItem[] = [
     {
       id: 'galeri-1',
-      image: '/gallery/galeri1.avif',
-      title: 'Kunjungan Study Trip Orlin Farm',
-      titleEn: 'Orlin Farm Educational Study Trip',
+      image: '/gallery/galeri1.jpg',
+      title: 'Trip Wisata Sembalun & Viewpoint Rinjani',
+      titleEn: 'Sembalun Highland Tour & Rinjani Viewpoint',
       category: 'tour',
-      location: 'Malang Jawa Timur',
-      tag: 'Study & Educational Trip',
-      description: 'Dokumentasi rombongan peserta kunjungan edukasi & wisata di Lombok bersama unit kendaraan Rinjani Transport.'
+      location: 'Sembalun, Lombok Timur',
+      tag: 'Sembalun Highland Trip',
+      description: 'Dokumentasi kebersamaan wisatawan menikmati panorama hamparan sawah warna-warni dan udara sejuk pegunungan Sembalun Lombok.'
     },
     {
       id: 'galeri-2',
-      image: '/gallery/galeri2.avif',
-      title: 'Rombongan Wisata Premium Coach',
-      titleEn: 'Touring Group with Premium Coach',
+      image: '/gallery/galeri2.jpg',
+      title: 'Layanan Antar Jemput Hiace VIP Lombok',
+      titleEn: 'Hiace VIP Airport & Resort Transfer',
       category: 'bus',
-      location: 'Kawasan Wisata Lombok',
-      tag: 'Sewa Bus & Hiace VIP',
-      description: 'Foto kenangan rombongan peserta tour wisata Lombok bersama armada Hiace & bus pariwisata Rinjani Transport.'
+      location: 'Resort & Bandara Lombok (LOP)',
+      tag: 'Sewa Hiace & Minibus VIP',
+      description: 'Kenyamanan penjemputan tamu hotel dan wisatawan rombongan bersama armada Toyota Hiace Premio Rinjani Transport.'
     },
     {
       id: 'galeri-3',
-      image: '/gallery/galeri3.avif',
-      title: 'Snorkeling & Wisata Bahari',
-      titleEn: 'Snorkeling & Marine Eco Trip',
-      category: 'beach',
-      location: 'Pantai & Pulau Malang Selatan',
-      tag: 'Wisata Pantai & Snorkeling',
-      description: 'Keseruan rombongan wisatawan menikmati pengalaman luar biasa snorkeling & explorasi pantai berpasir putih di Malang Selatan.'
+      image: '/gallery/galeri3.jpg',
+      title: 'Spot Foto Ikonik Bukit Selong Sembalun',
+      titleEn: 'Bukit Selong Bamboo Viewing Platform',
+      category: 'tour',
+      location: 'Bukit Selong, Sembalun Lombok',
+      tag: 'Spot Foto & Landscape',
+      description: 'Momen wisatawan mengabadikan lanskap petak sawah Sembalun yang menawan dari dek pandang bambu Bukit Selong.'
     },
     {
       id: 'galeri-4',
-      image: '/gallery/galeri4.avif',
-      title: 'Tour Group Dolan-Dolan Megatrans',
-      titleEn: 'Group Tour with Megatrans Bus',
-      category: 'bus',
-      location: 'Perjalanan Dinas & Trip Malang',
-      tag: 'Bus Charter & Gathering',
-      description: 'Kecerian peserta gathering rombongan besar Shipping Line Dolan-Dolan menggunakan fasilitas bus pariwisata Megatrans.'
+      image: '/gallery/galeri4.jpg',
+      title: 'Sunrise & Lautan Awan Bukit Pergasingan',
+      titleEn: 'Bukit Pergasingan Sunrise & Cloud Sea',
+      category: 'nature',
+      location: 'Bukit Pergasingan, Sembalun Lombok',
+      tag: 'Trekking & Sunrise Trip',
+      description: 'Keseruan pendaki menyaksikan pesona lautan awan dan golden sunrise berlatar belakang puncak megah Gunung Rinjani.'
     },
     {
       id: 'galeri-5',
-      image: '/gallery/galeri5.avif',
-      title: 'Spot Foto Wooden View Pantai Malang',
-      titleEn: 'Ocean Platform Deck Photoshoot',
-      category: 'beach',
-      location: 'Spot Wooden Deck Malang South Coast',
-      tag: 'Eksplor Pantai Malang',
-      description: 'Dokumentasi kebersamaan wisatawan di spot foto wooden deck bermandikan pemandangan laut biru jernih Malang Selatan.'
+      image: '/gallery/galeri5.jpg',
+      title: 'Tirai Air Alami Air Terjun Benang Kelambu',
+      titleEn: 'Benang Kelambu Natural Curtain Waterfall',
+      category: 'nature',
+      location: 'Benang Kelambu, Lombok Tengah',
+      tag: 'Wisata Air Terjun Alami',
+      description: 'Suasana kesegaran tirai air alami di tengah tebing hijau tropis yang asri bersama armada Rinjani Transport.'
     },
     {
       id: 'galeri-6',
-      image: '/gallery/galeri6.avif',
-      title: 'Spot Candi Laut Pantai Balekambang',
-      titleEn: 'Balekambang Temple & Ocean Bridge',
-      category: 'beach',
-      location: 'Pantai Balekambang Malang',
-      tag: 'Ikon Wisata Pantai Malang',
-      description: 'Foto kebersamaan wisatawan di atas jembatan ikonik penyeberangan Candi Pura Ismoyo Pantai Balekambang Malang.'
+      image: '/gallery/galeri6.jpg',
+      title: 'Pesona Pedesaan & Sawah Terasering Tetebatu',
+      titleEn: 'Tetebatu Rural Heritage & Rice Terraces',
+      category: 'tour',
+      location: 'Tetebatu, Lombok Timur',
+      tag: 'Wisata Budaya & Pedesaan',
+      description: 'Menikmati ketenangan alam terasering sawah hijau dan keramahan warga desa tradisional di kaki Gunung Rinjani.'
     },
     {
       id: 'galeri-7',
-      image: '/gallery/galeri7.avif',
-      title: 'Wisata Edukasi Dino Mall Jatim Park 3',
-      titleEn: 'Jatim Park 3 Dino Mall Batu Tour',
-      category: 'tour',
-      location: 'Dino Mall Jatim Park 3 Kota Batu',
-      tag: 'City Tour Batu Malang',
-      description: 'Keceriaan wisatawan saat tiba di destinasi wisata populer Lombok bersama tim Rinjani Transport.'
+      image: '/gallery/galeri7.jpg',
+      title: 'Golden Sunset Savana Bukit Anak Dara',
+      titleEn: 'Bukit Anak Dara Golden Sunset Adventure',
+      category: 'nature',
+      location: 'Bukit Anak Dara, Sembalun Lombok',
+      tag: 'Sunset & Ridge Adventure',
+      description: 'Momen spektakuler wisatawan menikmati pesona matahari terbenam di punggung bukit sabana Sembalun berketinggian 1.921 mdpl.'
     }
   ];
 
@@ -126,7 +126,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="font-display font-bold text-xs sm:text-sm text-[#d97706] tracking-widest uppercase bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200/60 inline-flex items-center gap-1.5">
             <Camera className="w-4 h-4" />
-            <span>{lang === 'EN' ? 'CUSTOMER DOKUMENTATION & REVIEWS' : 'DOKUMENTASI ASLI & PERJALANAN REAL'}</span>
+            <span>{lang === 'EN' ? 'CUSTOMER DOCUMENTATION & REAL MOMENTS' : 'DOKUMENTASI ASLI & PERJALANAN REAL'}</span>
           </span>
           
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 tracking-tight uppercase">
@@ -137,8 +137,8 @@ export default function GallerySection({ lang }: GallerySectionProps) {
 
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
             {lang === 'EN'
-              ? 'Real documentation photos of our valued guests enjoying holiday trips, transfers, and adventures across Lombok.'
-              : 'Kumpulan foto momen berkesan bersama para pelanggan setia Rinjani Transport saat perjalanan wisata, antar-jemput bandara & pelabuhan, hingga trip Sembalun.'}
+              ? 'Real documentation photos of our valued guests enjoying holiday trips, transfers, and mountain adventures across Lombok.'
+              : 'Kumpulan foto momen berkesan bersama para pelanggan setia Rinjani Transport saat perjalanan wisata, antar-jemput bandara & hotel, hingga trip Sembalun.'}
           </p>
         </div>
 
@@ -165,7 +165,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
             }`}
           >
             <Users className="w-3.5 h-3.5" />
-            <span>{lang === 'EN' ? 'Tour & Trip' : 'Tour & Kunjungan'}</span>
+            <span>{lang === 'EN' ? 'Tour & Highland' : 'Tour & Destinasi'}</span>
           </button>
 
           <button
@@ -177,19 +177,19 @@ export default function GallerySection({ lang }: GallerySectionProps) {
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{lang === 'EN' ? 'Bus & Rombongan' : 'Sewa Bus & Rombongan'}</span>
+            <span>{lang === 'EN' ? 'Hiace & Group' : 'Sewa Hiace & Antar Jemput'}</span>
           </button>
 
           <button
-            onClick={() => setActiveFilter('beach')}
+            onClick={() => setActiveFilter('nature')}
             className={`px-5 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2 border ${
-              activeFilter === 'beach'
+              activeFilter === 'nature'
                 ? 'bg-luxury-black text-luxury-gold border-luxury-gold shadow-md scale-[1.02]'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-amber-300 hover:text-[#d97706]'
             }`}
           >
             <MapPin className="w-3.5 h-3.5" />
-            <span>{lang === 'EN' ? 'Beach & Snorkeling' : 'Wisata Pantai & Snorkeling'}</span>
+            <span>{lang === 'EN' ? 'Nature & Trekking' : 'Wisata Alam & Trekking'}</span>
           </button>
         </div>
 

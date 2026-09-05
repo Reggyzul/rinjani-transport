@@ -71,7 +71,7 @@ export default function About({ lang }: AboutProps) {
               {/* Central Premium vehicle image inside frame */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg mb-6 border border-white/5 bg-black/20">
                 <img
-                  src="/hiace_premio.png"
+                  src="/about_rinjani_transport.jpg"
                   alt="Toyota Hiace Premio Rinjani Transport Lombok"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"

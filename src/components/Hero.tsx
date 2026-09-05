@@ -19,7 +19,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
       subtitle: lang === 'EN' 
         ? 'Experience unforgettable mountain views, cool highland air, and scenic valleys with Rinjani Transport.'
         : 'Nikmati panorama pegunungan nan megah, udara sejuk lembah, dan bukit eksotis di Sembalun bersama Rinjani Transport.',
-      image: '/hero_bromo.png',
+      image: '/hero_sembalun.jpg',
       location: 'Sembalun, Lombok Timur',
       waMsg: 'Halo Rinjani Transport, saya ingin konsultasi mengenai paket wisata Sembalun & perbukitan di Lombok.'
     },
@@ -29,7 +29,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
       subtitle: lang === 'EN'
         ? 'Discover the refreshing beauty of natural water curtains enveloped by lush tropical forest.'
         : 'Rasakan kesegaran tirai air alami di tengah tebing hijau asri bersama driver lokal berpengalaman kami.',
-      image: '/hero_tumpak.png',
+      image: '/hero_benang_kelambu.jpg',
       location: 'Benang Kelambu, Lombok Tengah',
       waMsg: 'Halo Rinjani Transport, saya tertarik dengan tour Air Terjun Benang Kelambu. Mohon informasi ketersediaan armadanya.'
     },
@@ -39,7 +39,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
       subtitle: lang === 'EN'
         ? 'Immerse in peaceful rice terraces and pristine nature at the foot of Mount Rinjani.'
         : 'Eksplorasi hamparan sawah terasering, perkebunan alami, dan satwa primata di kaki Gunung Rinjani.',
-      image: '/hero_batu.png',
+      image: '/hero_tetebatu.jpg',
       location: 'Tetebatu, Lombok Timur',
       waMsg: 'Halo Rinjani Transport, saya ingin bertanya tentang paket tour Tetebatu & Monkey Forest.'
     }

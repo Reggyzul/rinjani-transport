@@ -15,8 +15,8 @@ interface HeaderProps {
   onNavClick: (sectionId: string) => void;
   lang: 'ID' | 'EN';
   setLang: (lang: 'ID' | 'EN') => void;
-  currentPage: 'home' | 'tours' | 'rentals' | 'gallery';
-  setCurrentPage: (page: 'home' | 'tours' | 'rentals' | 'gallery') => void;
+  currentPage: 'home' | 'about' | 'tours' | 'rentals' | 'gallery';
+  setCurrentPage: (page: 'home' | 'about' | 'tours' | 'rentals' | 'gallery') => void;
   activeSection: string;
   onBookingClick: () => void;
 }
@@ -50,7 +50,7 @@ export default function Header({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handlePageClick = (pageId: 'home' | 'tours' | 'rentals' | 'gallery') => {
+  const handlePageClick = (pageId: 'home' | 'about' | 'tours' | 'rentals' | 'gallery') => {
     setCurrentPage(pageId);
     onNavClick(pageId);
     setIsOpen(false);
@@ -164,15 +164,15 @@ export default function Header({
 
               {/* Tentang Kami */}
               <button
-                onClick={() => handleSectionClick('about')}
+                onClick={() => handlePageClick('about')}
                 className={`font-display text-sm font-semibold transition-colors cursor-pointer relative py-2 ${
-                  currentPage === 'home' && activeSection === 'about'
+                  currentPage === 'about'
                     ? 'text-luxury-gold'
                     : 'text-gray-600 hover:text-luxury-gold'
                 }`}
               >
                 {lang === 'EN' ? 'About Us' : 'Tentang Kami'}
-                {currentPage === 'home' && activeSection === 'about' && (
+                {currentPage === 'about' && (
                   <motion.div
                     layoutId="activeNavIndicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-luxury-gold"
@@ -390,9 +390,9 @@ export default function Header({
 
               {/* Mobile Tentang Kami */}
               <button
-                onClick={() => handleSectionClick('about')}
+                onClick={() => handlePageClick('about')}
                 className={`block w-full text-left px-4 py-2.5 font-display text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
-                  currentPage === 'home' && activeSection === 'about'
+                  currentPage === 'about'
                     ? 'bg-amber-50 text-luxury-gold border-l-4 border-luxury-gold pl-3'
                     : 'text-gray-700 hover:bg-gray-50'
                 }`}

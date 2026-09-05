@@ -15,13 +15,13 @@ import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import { Car } from './types';
 import { CARS } from './data/cars';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from './utils/translations';
 import { openWhatsApp } from './utils/whatsapp';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'tours' | 'rentals' | 'gallery'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'tours' | 'rentals' | 'gallery'>('home');
   const [activeSection, setActiveSection] = useState('home');
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -41,7 +41,7 @@ export default function App() {
 
       // Track active section on home page
       if (currentPage === 'home') {
-        const sections = ['home', 'about', 'cars', 'tours', 'extra-services', 'contact'];
+        const sections = ['home', 'cars', 'tours', 'extra-services', 'contact'];
         const scrollPosition = window.scrollY + 250; // Offset
 
         for (const section of sections) {
@@ -67,6 +67,10 @@ export default function App() {
       setCurrentPage('home');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('home');
+    } else if (sectionId === 'about') {
+      setCurrentPage('about');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveSection('about');
     } else if (sectionId === 'tours') {
       setCurrentPage('tours');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -75,6 +79,10 @@ export default function App() {
       setCurrentPage('rentals');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('rentals');
+    } else if (sectionId === 'gallery') {
+      setCurrentPage('gallery');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveSection('gallery');
     } else {
       const el = document.getElementById(sectionId);
       if (el) {
@@ -122,10 +130,7 @@ export default function App() {
             {/* 1. Hero Section */}
             <Hero onRentClick={() => handleNavClick('rentals')} lang={lang} />
 
-            {/* 2. Section: Tentang Kami Rinjani Transport */}
-            <About lang={lang} />
-
-            {/* 3. Section: Pilihan Mobil / Armada */}
+            {/* 2. Section: Pilihan Mobil / Armada */}
             <CarList 
               onSelectCar={handleSelectCar} 
               lang={lang} 
@@ -133,12 +138,64 @@ export default function App() {
               onViewMore={() => handleNavClick('rentals')}
             />
 
-            {/* 4. Section: Destinasi Wisata Lombok */}
+            {/* 3. Section: Destinasi Wisata Lombok */}
             <ToursList lang={lang} />
 
-            {/* 5. Section: Layanan Tambahan */}
+            {/* 4. Section: Layanan Tambahan */}
             <ExtraServices lang={lang} />
+
+            {/* 5. Profil Perusahaan Callout -> Menuju Halaman Tentang Kami */}
+            <section className="py-14 bg-gradient-to-r from-gray-900 via-luxury-black to-gray-900 text-white border-t border-b border-luxury-gold/20 font-sans">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="space-y-2 text-center md:text-left">
+                  <span className="text-luxury-gold font-display font-bold text-xs uppercase tracking-[0.2em] bg-white/5 border border-luxury-gold/30 px-3 py-1 rounded-full inline-block">
+                    {lang === 'EN' ? 'OFFICIAL COMPANY PROFILE' : 'PROFIL PERUSAHAAN'}
+                  </span>
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                    {lang === 'EN' ? 'Get to Know Rinjani Transport' : 'Kenal Lebih Dekat Rinjani Transport'}
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-gray-300 max-w-xl leading-relaxed">
+                    {lang === 'EN'
+                      ? 'Discover our company background, mission & vision, legal transport licenses, and why travelers trust us across Lombok.'
+                      : 'Pelajari profil lengkap, visi & misi, legalitas armada berizin resmi, serta dedikasi kami dalam mengutamakan kenyamanan liburan Anda di Lombok.'}
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="px-7 py-3.5 bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center gap-2.5 cursor-pointer shrink-0 group"
+                >
+                  <span>{lang === 'EN' ? 'Explore About Us' : 'Buka Halaman Tentang Kami'}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </section>
           </>
+        ) : currentPage === 'about' ? (
+          <div className="pt-24 sm:pt-28">
+            {/* Elegant Header Banner for About Page */}
+            <div className="bg-gradient-to-r from-gray-950 via-luxury-black to-gray-950 text-white py-14 px-4 border-b border-luxury-gold/20 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-900/20 via-transparent to-transparent pointer-events-none" />
+              <div className="max-w-4xl mx-auto space-y-3 relative z-10">
+                <span className="text-luxury-gold font-display font-bold text-xs uppercase tracking-[0.2em] bg-white/5 border border-luxury-gold/30 px-4 py-1.5 rounded-full inline-block shadow-sm">
+                  {lang === 'EN' ? 'OFFICIAL COMPANY PROFILE' : 'PROFIL RESMI PERUSAHAAN'}
+                </span>
+                <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white">
+                  {lang === 'EN' ? 'About Rinjani Transport' : 'Tentang Rinjani Transport'}
+                </h1>
+                <p className="font-sans text-gray-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                  {lang === 'EN' 
+                    ? 'Your trusted, licensed transportation and tour partner in Lombok. We prioritize comfort, safety, and authentic local hospitality for your unforgettable journey.' 
+                    : 'Mitra transportasi dan perjalanan wisata terpercaya di Lombok. Mengutamakan kenyamanan, keamanan, armada prima, serta keramahan driver lokal untuk liburan terbaik Anda.'}
+                </p>
+              </div>
+            </div>
+
+            {/* Detailed About Content */}
+            <About lang={lang} />
+
+            {/* Extra Services Complementary Section */}
+            <ExtraServices lang={lang} />
+          </div>
         ) : currentPage === 'tours' ? (
           <div className="pt-28 sm:pt-32">
             {/* Tours View */}

@@ -99,7 +99,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'FAVORIT ALAM',
-    image: '/hero_tumpak.png',
+    image: '/tour_benang_kelambu.jpg',
     description: 'Nikmati perjalanan menuju salah satu air terjun terkenal di Lombok yang memiliki pemandangan alam hijau dan suasana yang menyegarkan.',
     descriptionEn: 'Enjoy a refreshing journey to one of the most celebrated waterfalls in Lombok, enveloped by lush tropical greenery and pristine curtains of natural water.',
     highlights: [
@@ -156,7 +156,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'WISATA PEDESAAN',
-    image: '/hero_batu.png',
+    image: '/tour_tetebatu.jpg',
     description: 'Menjelajahi kawasan Tetebatu dengan suasana pedesaan, persawahan, dan panorama alam yang berada di kaki Gunung Rinjani.',
     descriptionEn: 'Explore the scenic Tetebatu region, renowned for its peaceful rural atmosphere, rice terraces, and breathtaking views nestled at the foot of Mount Rinjani.',
     highlights: [
@@ -213,7 +213,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'WISATA SATWA ALAM',
-    image: '/malang_batu.png',
+    image: '/tour_monkey_forest.jpg',
     description: 'Destinasi wisata alam yang dapat menjadi bagian dari perjalanan wisata di kawasan Tetebatu dengan keanekaragaman flora dan satwa primata alami.',
     descriptionEn: 'An enchanting natural sanctuary that forms a delightful highlight of any Tetebatu excursion, featuring natural primate habitats in a pristine forest setting.',
     highlights: [
@@ -267,7 +267,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'BEST SELLER',
-    image: '/hero_bromo.png',
+    image: '/tour_sembalun.jpg',
     description: 'Perjalanan menuju Sembalun dengan panorama pegunungan dan perbukitan yang menjadi salah satu daya tarik utama Lombok Timur.',
     descriptionEn: 'Journey towards Sembalun valley, surrounded by grand mountain vistas and rolling hills that represent one of East Lombok’s most breathtaking highlights.',
     highlights: [
@@ -325,7 +325,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'SPOT FOTO IKONIK',
-    image: '/hero_batu.png',
+    image: '/tour_bukit_selong.jpg',
     description: 'Menikmati pemandangan perbukitan dan hamparan sawah dari ketinggian dengan panorama khas Sembalun yang berwarna-warni.',
     descriptionEn: 'Feast your eyes on sweeping hilltops and colorful patchwork rice paddies from above, showcasing Sembalun’s most famous iconic panorama.',
     highlights: [
@@ -382,7 +382,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari / Sunrise Trip',
     durationEn: '1 Day / Sunrise Trip',
     badge: 'TREKKING FAVORIT',
-    image: '/tumpak_sewu.png',
+    image: '/tour_bukit_pergasingan.jpg',
     description: 'Destinasi favorit bagi wisatawan yang ingin menikmati panorama Sembalun dari atas bukit dengan pemandangan spektakuler Gunung Rinjani.',
     descriptionEn: 'The ultimate favorite destination for travelers desiring panoramic views of Sembalun from a majestic hill ridge, offering sensational views of Mount Rinjani.',
     highlights: [
@@ -440,7 +440,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '1 Hari (Full Day)',
     durationEn: '1 Day (Full Day)',
     badge: 'WISATA ALAM EKSOTIS',
-    image: '/pantai_malang.png',
+    image: '/tour_bukit_anak_dara.jpg',
     description: 'Menawarkan pemandangan alam Sembalun yang indah dan cocok bagi wisatawan yang menyukai wisata alam dan perbukitan eksotis.',
     descriptionEn: 'Offers magnificent natural vistas of Sembalun, perfectly suited for travelers who appreciate untamed nature and dramatic exotic hill ridges.',
     highlights: [
