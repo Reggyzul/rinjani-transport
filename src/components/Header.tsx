@@ -9,8 +9,6 @@ import {
   Compass, 
   Car, 
   Briefcase,
-  MapPin,
-  Sparkles,
   ArrowRightLeft
 } from 'lucide-react';
 
@@ -112,26 +110,6 @@ export default function Header({
       id="main-header"
       className="fixed top-0 left-0 w-full z-50 flex flex-col shadow-sm"
     >
-      {/* Top Bar with Address & Contact */}
-      <div className="bg-gray-900 text-gray-300 text-[11px] py-1.5 px-4 hidden sm:block border-b border-white/5">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-luxury-gold shrink-0" />
-              <span>{t.topbar_address}</span>
-            </span>
-            <span className="text-gray-500">|</span>
-            <span className="text-luxury-gold font-medium flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 shrink-0" />
-              <span>{t.topbar_service}</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-gray-300 font-semibold">{t.topbar_whatsapp}</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
