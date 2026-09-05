@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare, Car, Sparkles, MapPin } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
+import { openWhatsApp } from '../utils/whatsapp';
 
 interface HeroProps {
   onRentClick: () => void;
@@ -13,31 +14,34 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
 
   const slides = [
     {
-      id: 'bromo',
-      title: lang === 'EN' ? 'EXPLORE THE BEAUTY OF BROMO' : 'JELAJAHI PESONA BROMO',
+      id: 'sembalun',
+      title: lang === 'EN' ? 'EXPLORE THE MAJESTIC SEMBALUN & RINJANI' : 'JELAJAHI PESONA SEMBALUN & GUNUNG RINJANI',
       subtitle: lang === 'EN' 
-        ? 'Enjoy an unforgettable golden sunrise moment with our premium tour packages.'
-        : 'Nikmati momen golden sunrise tak terlupakan dengan paket wisata premium kami.',
+        ? 'Experience unforgettable mountain views, cool highland air, and scenic valleys with Rinjani Transport.'
+        : 'Nikmati panorama pegunungan nan megah, udara sejuk lembah, dan bukit eksotis di Sembalun bersama Rinjani Transport.',
       image: '/hero_bromo.png',
-      waMsg: 'Halo Yoga Transport, saya ingin konsultasi gratis mengenai paket wisata Bromo.'
+      location: 'Sembalun, Lombok Timur',
+      waMsg: 'Halo Rinjani Transport, saya ingin konsultasi mengenai paket wisata Sembalun & perbukitan di Lombok.'
     },
     {
-      id: 'malang-batu',
-      title: lang === 'EN' ? 'DISCOVER MALANG & BATU' : 'EKSPLORASI MALANG & BATU',
+      id: 'benang-kelambu',
+      title: lang === 'EN' ? 'REFRESHING BENANG KELAMBU WATERFALL' : 'KESEJUKAN ALAMI AIR TERJUN BENANG KELAMBU',
       subtitle: lang === 'EN'
-        ? 'Best private holiday experience in Batu city theme parks and natural wonders.'
-        : 'Pengalaman liburan privat terbaik keliling destinasi populer Malang dan Kota Batu.',
-      image: '/hero_batu.png',
-      waMsg: 'Halo Yoga Transport, saya ingin bertanya tentang paket wisata Malang & Batu.'
-    },
-    {
-      id: 'tumpak-sewu',
-      title: lang === 'EN' ? 'MAGNIFICENT TUMPAK SEWU' : 'KEINDAHAN TUMPAK SEWU',
-      subtitle: lang === 'EN'
-        ? 'Adventure to the Niagara of Indonesia with our professional local guides.'
-        : 'Petualangan seru menuju Niagara-nya Indonesia dengan panduan driver berpengalaman.',
+        ? 'Discover the refreshing beauty of natural water curtains enveloped by lush tropical forest.'
+        : 'Rasakan kesegaran tirai air alami di tengah tebing hijau asri bersama driver lokal berpengalaman kami.',
       image: '/hero_tumpak.png',
-      waMsg: 'Halo Yoga Transport, saya tertarik dengan trip Tumpak Sewu.'
+      location: 'Benang Kelambu, Lombok Tengah',
+      waMsg: 'Halo Rinjani Transport, saya tertarik dengan tour Air Terjun Benang Kelambu. Mohon informasi ketersediaan armadanya.'
+    },
+    {
+      id: 'tetebatu',
+      title: lang === 'EN' ? 'TRANQUIL TETEBATU HERITAGE & MONKEY FOREST' : 'EKSOTISME PEDESAAN TETEBATU & MONKEY FOREST',
+      subtitle: lang === 'EN'
+        ? 'Immerse in peaceful rice terraces and pristine nature at the foot of Mount Rinjani.'
+        : 'Eksplorasi hamparan sawah terasering, perkebunan alami, dan satwa primata di kaki Gunung Rinjani.',
+      image: '/hero_batu.png',
+      location: 'Tetebatu, Lombok Timur',
+      waMsg: 'Halo Rinjani Transport, saya ingin bertanya tentang paket tour Tetebatu & Monkey Forest.'
     }
   ];
 
@@ -62,8 +66,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
   const currentSlide = slides[currentSlideIndex];
 
   const handleConsultation = () => {
-    const waNumber = '628813305066';
-    window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(currentSlide.waMsg)}`, '_blank', 'noreferrer');
+    openWhatsApp(currentSlide.waMsg);
   };
 
   return (
@@ -86,12 +89,12 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             alt={currentSlide.title}
             className="w-full h-full object-cover object-center"
           />
-          {/* Dark Overlay Gradient matching screenshot */}
-          <div className="absolute inset-0 bg-black/60 backdrop-brightness-90" />
+          {/* Dark Overlay Gradient */}
+          <div className="absolute inset-0 bg-black/65 backdrop-brightness-90" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Main Content Area - Generous Top Padding so Nav Header never overlaps */}
+      {/* Main Content Area */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white my-auto flex flex-col items-center justify-center">
         
         <AnimatePresence mode="wait">
@@ -100,65 +103,98 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-5 sm:space-y-6 max-w-4xl"
+            transition={{ duration: 0.6 }}
+            className="space-y-4 sm:space-y-6 flex flex-col items-center"
           >
-            {/* Elegant Large Serif Title matching screenshot */}
-            <h1 className="font-['Playfair_Display',Georgia,serif] text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-wider text-white drop-shadow-md leading-[1.2] px-2">
+            {/* Tagline Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-luxury-gold shadow-lg">
+              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+              <span className="font-display font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase">
+                YOUR JOURNEY, OUR PRIORITY
+              </span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white max-w-4xl leading-[1.1] drop-shadow-md">
               {currentSlide.title}
             </h1>
 
-            {/* Subtitle text */}
-            <p className="font-sans text-gray-200 text-sm sm:text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed drop-shadow-sm px-4">
+            {/* Subtitle description */}
+            <p className="font-sans text-gray-200 text-sm sm:text-lg max-w-2xl leading-relaxed drop-shadow">
               {currentSlide.subtitle}
             </p>
 
-            {/* KONSULTASI GRATIS Outline Gold CTA Button */}
-            <div className="pt-2 sm:pt-4 flex justify-center">
-              <button
+            {/* Destination Pill */}
+            <div className="inline-flex items-center gap-1.5 text-xs text-luxury-gold bg-white/10 backdrop-blur px-3.5 py-1 rounded-full border border-white/10">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>{currentSlide.location}</span>
+            </div>
+
+            {/* Dual Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-4 w-full sm:w-auto">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={handleConsultation}
-                className="px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-[#f59e0b] hover:bg-[#f59e0b] hover:text-gray-950 text-[#f59e0b] font-display font-extrabold text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 rounded-sm shadow-xl cursor-pointer bg-black/30 backdrop-blur-xs"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5 cursor-pointer"
+                id="hero-book-btn"
               >
-                {lang === 'EN' ? 'FREE CONSULTATION' : 'KONSULTASI GRATIS'}
-              </button>
+                <MessageSquare className="w-4 h-4" />
+                <span>{t.hero_cta_wa}</span>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onRentClick}
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
+                id="hero-cars-btn"
+              >
+                <Car className="w-4 h-4" />
+                <span>{t.hero_cta_cars}</span>
+              </motion.button>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom Golden Indicator Line */}
-        <div className="mt-10 sm:mt-12 flex items-center justify-center gap-2">
-          {slides.map((slide, idx) => (
-            <button
-              key={slide.id}
-              onClick={() => setCurrentSlideIndex(idx)}
-              className={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
-                idx === currentSlideIndex ? 'w-12 bg-[#f59e0b]' : 'w-3 bg-white/40 hover:bg-white/70'
-              }`}
-              title={`Slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
       </div>
 
-      {/* Navigation Arrow Left */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full text-white/70 hover:text-white bg-black/30 hover:bg-black/60 transition-all cursor-pointer backdrop-blur-sm hidden sm:flex"
-        title="Previous Slide"
-      >
-        <ChevronLeft className="w-8 h-8" />
-      </button>
+      {/* Slider Left / Right arrows */}
+      <div className="absolute inset-y-0 left-4 sm:left-8 z-30 flex items-center">
+        <button
+          onClick={prevSlide}
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer group"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+        </button>
+      </div>
 
-      {/* Navigation Arrow Right */}
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full text-white/70 hover:text-white bg-black/30 hover:bg-black/60 transition-all cursor-pointer backdrop-blur-sm hidden sm:flex"
-        title="Next Slide"
-      >
-        <ChevronRight className="w-8 h-8" />
-      </button>
+      <div className="absolute inset-y-0 right-4 sm:right-8 z-30 flex items-center">
+        <button
+          onClick={nextSlide}
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer group"
+          aria-label="Next Slide"
+        >
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+        </button>
+      </div>
 
+      {/* Carousel Dots indicator */}
+      <div className="absolute bottom-6 z-30 flex items-center gap-2.5">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlideIndex(idx)}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
+              idx === currentSlideIndex 
+                ? 'w-8 h-2 bg-luxury-gold' 
+                : 'w-2 h-2 bg-white/40 hover:bg-white/70'
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

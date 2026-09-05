@@ -2,6 +2,7 @@ import React from 'react';
 import { Car, Compass, Mountain, Plane } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { motion } from 'motion/react';
+import { DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
 interface ServicesProps {
   lang: 'ID' | 'EN';
@@ -42,20 +43,20 @@ export default function Services({ lang }: ServicesProps) {
       const el = document.getElementById('cars');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      const waNumber = '628813305066';
+      const waNumber = DEFAULT_WA_NUMBER;
       let message = '';
       if (serviceId === 'tour') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I would like to inquire about the Malang & Batu City Tour service.'
-          : 'Halo Yoga Transport, saya ingin bertanya dan memesan layanan City Tour Malang & Batu.';
+          ? 'Hello Rinjani Transport, I would like to inquire about the Lombok Tour service.'
+          : 'Halo Rinjani Transport, saya ingin bertanya dan memesan layanan Wisata & Tour Lombok.';
       } else if (serviceId === 'bromo') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I am interested in booking the Malang & Bromo Tour Package.'
-          : 'Halo Yoga Transport, saya ingin memesan Paket Wisata Malang & Bromo.';
+          ? 'Hello Rinjani Transport, I am interested in booking the Sembalun Highland Tour.'
+          : 'Halo Rinjani Transport, saya ingin memesan Paket Wisata Sembalun Lombok.';
       } else if (serviceId === 'shuttle') {
         message = lang === 'EN'
-          ? 'Hello Yoga Transport, I would like to book the Airport Shuttle & Drop-off service.'
-          : 'Halo Yoga Transport, saya ingin memesan layanan Shuttle & Drop Bandara.';
+          ? 'Hello Rinjani Transport, I would like to book the Airport / Harbor Transfer service.'
+          : 'Halo Rinjani Transport, saya ingin memesan layanan Airport / Pelabuhan Transfer di Lombok.';
       }
       window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(message)}`, '_blank', 'noreferrer');
     }

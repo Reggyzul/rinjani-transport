@@ -10,7 +10,6 @@ import About from './components/About';
 import ToursList from './components/ToursList';
 import ExtraServices from './components/ExtraServices';
 import CarList from './components/CarList';
-import HomestaySection from './components/HomestaySection';
 import GallerySection from './components/GallerySection';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
@@ -19,7 +18,6 @@ import { CARS } from './data/cars';
 import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TRANSLATIONS } from './utils/translations';
-
 import { openWhatsApp } from './utils/whatsapp';
 
 export default function App() {
@@ -43,7 +41,7 @@ export default function App() {
 
       // Track active section on home page
       if (currentPage === 'home') {
-        const sections = ['home', 'about', 'cars', 'tours', 'extra-services', 'steps', 'penginapan', 'contact'];
+        const sections = ['home', 'about', 'cars', 'tours', 'extra-services', 'contact'];
         const scrollPosition = window.scrollY + 250; // Offset
 
         for (const section of sections) {
@@ -124,47 +122,41 @@ export default function App() {
             {/* 1. Hero Section */}
             <Hero onRentClick={() => handleNavClick('rentals')} lang={lang} />
 
-            {/* 2. Section: Tentang Kami Yoga Transport */}
+            {/* 2. Section: Tentang Kami Rinjani Transport */}
             <About lang={lang} />
 
             {/* 3. Section: Pilihan Mobil / Armada */}
             <CarList 
               onSelectCar={handleSelectCar} 
               lang={lang} 
-              limit={3} 
+              limit={4} 
               onViewMore={() => handleNavClick('rentals')}
             />
 
-            {/* 4. Section: Paket Wisata Terbaik Kami */}
+            {/* 4. Section: Destinasi Wisata Lombok */}
             <ToursList lang={lang} />
 
             {/* 5. Section: Layanan Tambahan */}
             <ExtraServices lang={lang} />
-
-            {/* 6. Penginapan Homestay Malang */}
-            <HomestaySection lang={lang} />
           </>
         ) : currentPage === 'tours' ? (
-          <div className="pt-44 sm:pt-48">
+          <div className="pt-28 sm:pt-32">
             {/* Tours View */}
             <ToursList lang={lang} />
             
             {/* Layanan Tambahan */}
             <ExtraServices lang={lang} />
-
-            {/* Penginapan Homestay Malang */}
-            <HomestaySection lang={lang} />
           </div>
         ) : currentPage === 'rentals' ? (
-          <div className="pt-44 sm:pt-48">
+          <div className="pt-28 sm:pt-32">
             {/* Rentals View */}
             <CarList onSelectCar={handleSelectCar} lang={lang} />
             
-            {/* Penginapan Homestay Malang */}
-            <HomestaySection lang={lang} />
+            {/* Layanan Tambahan */}
+            <ExtraServices lang={lang} />
           </div>
         ) : (
-          <div className="pt-44 sm:pt-48">
+          <div className="pt-28 sm:pt-32">
             {/* Gallery View */}
             <GallerySection lang={lang} />
           </div>
@@ -199,7 +191,7 @@ export default function App() {
           </span>
         </motion.button>
 
-        {/* 3. Back to Top Floater (Blue) */}
+        {/* 2. Back to Top Floater (Blue) */}
         <AnimatePresence>
           {showScrollTop && (
             <motion.button

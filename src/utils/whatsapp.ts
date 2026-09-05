@@ -1,39 +1,23 @@
-export const DEFAULT_WA_NUMBER = '628813305066';
+export const DEFAULT_WA_NUMBER = '6285964280931';
 
-export const DEFAULT_WA_TEMPLATE = `Yoga transport
-================ 
-https://www.yogatransport.my.id
+export const DEFAULT_WA_TEMPLATE = `*Rinjani Transport Lombok*
+==========================
+*Your Journey, Our Priority.*
 
-MELAYANI :*
-Shuttle Airport
-Malang - Juanda👇
-Juanda - Malang
+Halo Rinjani Transport, saya ingin konsultasi layanan transportasi & wisata di Lombok:
 
-MALANG KOTA - JUANDA
-👉 Reguler @150k (NON TOL)
-👉 CARTER DROP/PRIVATE  400k (NON TOL & MAKSIMAL 4 org 1 ALAMAT)
+📍 *Kebutuhan Layanan:*
+👉 Airport Transfer (Bandara Lombok)
+👉 Hotel & Pelabuhan Transfer (Bangsal / Gili)
+👉 Rental Mobil + Driver (Innova / Hiace / Avanza)
+👉 Wisata & Tour Lombok (Sembalun / Benang Kelambu / Tetebatu)
+👉 One Way Transport
 
-JUANDA - MALANG KOTA
-👉 REGULER  @150k (NON TOL)
-👉 CARTER DROP/PRIVATE 400k (NON TOL & Maksimal 4 ORG 1 ALAMAT)
-
-MALANG KAB/BATU - JUANDA
-👉 REGULER @170k (NON TOL)
-👉  CARTER DROP/PRIVATE  450k (NON TOL & MAKSIMAL 4 org 1 ALAMAT)
-
-JUANDA - MALANG KAB/BATU
-👉 REGULER @170k (NON TOL)
-👉  CARTER DROP/PRIVATE  450k (NON TOL & MAKSIMAL 4 ORG 1 ALAMAT)
-
-Melayani :
-TOUR KOTA MALANG👇
-
-👉 Bromo Sunrise
-👉 KWB (Kota Wisata Batu)
-👉 Panorama Pantai Selatan`;
+Mohon informasi ketersediaan unit dan penawaran harga terbaik. Terima kasih!`;
 
 export const openWhatsApp = (customMessage?: string) => {
   const text = customMessage && customMessage.trim().length > 0 ? customMessage : DEFAULT_WA_TEMPLATE;
   const url = `https://api.whatsapp.com/send?phone=${DEFAULT_WA_NUMBER}&text=${encodeURIComponent(text)}`;
   window.open(url, '_blank', 'noreferrer');
 };
+

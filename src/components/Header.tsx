@@ -8,7 +8,6 @@ import {
   X, 
   Compass, 
   Car, 
-  Home,
   Briefcase
 } from 'lucide-react';
 
@@ -70,34 +69,48 @@ export default function Header({
   const servicesList = [
     {
       id: 'tours',
-      label: lang === 'EN' ? 'Tour Packages' : 'Paket Wisata',
-      desc: lang === 'EN' ? 'Bromo, Malang & Batu Trips' : 'Trip Bromo, Malang & Batu',
+      label: lang === 'EN' ? 'Lombok Tour Packages' : 'Paket Wisata Lombok',
+      desc: lang === 'EN' ? 'Sembalun, Tetebatu & Waterfalls' : 'Sembalun, Tetebatu & Air Terjun',
       icon: Compass,
       action: () => handlePageClick('tours')
     },
     {
       id: 'rentals',
-      label: lang === 'EN' ? 'Car Rental' : 'Pilihan Mobil',
-      desc: lang === 'EN' ? 'City Car, SUV & Bus Charter' : 'City Car, SUV & Sewa Bus',
+      label: lang === 'EN' ? 'Car Rental Fleet' : 'Pilihan Mobil',
+      desc: lang === 'EN' ? 'Avanza, Innova, Hiace Commuter & Premio' : 'Avanza, Innova, Hiace Commuter & Premio',
       icon: Car,
       action: () => handlePageClick('rentals')
     },
     {
-      id: 'penginapan',
-      label: lang === 'EN' ? 'Homestay Lodging' : 'Penginapan Homestay',
-      desc: lang === 'EN' ? 'RJA 1 & RJA 2 Homestay Malang' : 'RJA 1 & RJA 2 Malang',
-      icon: Home,
-      action: () => handleSectionClick('penginapan')
+      id: 'extra-services',
+      label: lang === 'EN' ? 'Transfer Services' : 'Layanan Transfer',
+      desc: lang === 'EN' ? 'Airport, Hotel, Harbor (Gili) & One Way' : 'Bandara, Hotel, Pelabuhan Bangsal & One Way',
+      icon: Briefcase,
+      action: () => handleSectionClick('extra-services')
     }
   ];
 
-  const isLayananActive = currentPage === 'tours' || currentPage === 'rentals' || (currentPage === 'home' && activeSection === 'penginapan');
+  const isLayananActive = currentPage === 'tours' || currentPage === 'rentals' || (currentPage === 'home' && activeSection === 'extra-services');
 
   return (
     <header
       id="main-header"
       className="fixed top-0 left-0 w-full z-50 flex flex-col shadow-sm"
     >
+      {/* Top Bar with Address & Contact */}
+      <div className="bg-gray-900 text-gray-300 text-[11px] py-1.5 px-4 hidden sm:block border-b border-white/5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span>📍 {t.topbar_address}</span>
+            <span className="text-gray-500">|</span>
+            <span className="text-luxury-gold font-medium">⚡ {t.topbar_service}</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-gray-300 font-semibold">{t.topbar_whatsapp}</span>
+          </div>
+        </div>
+      </div>
+
       {/* Main Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
@@ -115,21 +128,15 @@ export default function Header({
               className="flex items-center cursor-pointer group py-1 gap-2.5 sm:gap-3"
               id="header-logo"
             >
-              <picture>
-                <source srcSet="/logo.avif" type="image/avif" />
-                <source srcSet="/logo.png" type="image/png" />
-                <img
-                  src="/logo.png"
-                  alt="Yoga Transport Emblem Logo"
-                  className="h-12 sm:h-14 w-auto max-h-[56px] object-contain transition-transform duration-500 group-hover:scale-105 filter drop-shadow-md"
-                />
-              </picture>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+                R
+              </div>
               <div className="flex flex-col text-left">
-                <span className="font-display font-extrabold text-base sm:text-lg text-gray-900 leading-none tracking-tight group-hover:text-[#d97706] transition-colors">
-                  YOGA TRANSPORT
+                <span className="font-display font-extrabold text-base sm:text-lg text-gray-900 leading-none tracking-tight group-hover:text-luxury-gold transition-colors">
+                  RINJANI TRANSPORT
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-bold text-[#d97706] uppercase tracking-widest mt-0.5">
-                  Malang Tour & Travel
+                <span className="text-[9px] sm:text-[10px] font-bold text-luxury-gold uppercase tracking-widest mt-0.5">
+                  Lombok Tour & Travel
                 </span>
               </div>
             </div>
@@ -174,7 +181,7 @@ export default function Header({
                 )}
               </button>
 
-              {/* LAYANAN DROPDOWN MENU (Paket Wisata, Pilihan Mobil, Penginapan) */}
+              {/* LAYANAN DROPDOWN MENU */}
               <div 
                 className="relative"
                 onMouseEnter={() => setShowLayananDropdown(true)}
@@ -219,23 +226,23 @@ export default function Header({
                         const isSrvActive = 
                           (srv.id === 'tours' && currentPage === 'tours') ||
                           (srv.id === 'rentals' && currentPage === 'rentals') ||
-                          (srv.id === 'penginapan' && currentPage === 'home' && activeSection === 'penginapan');
+                          (srv.id === 'extra-services' && currentPage === 'home' && activeSection === 'extra-services');
 
                         return (
                           <button
                             key={srv.id}
                             onClick={srv.action}
                             className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center gap-3 cursor-pointer group ${
-                              isSrvActive ? 'bg-amber-50 text-[#d97706]' : 'hover:bg-gray-50 text-gray-700'
+                              isSrvActive ? 'bg-amber-50 text-luxury-gold' : 'hover:bg-gray-50 text-gray-700'
                             }`}
                           >
                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                              isSrvActive ? 'bg-[#d97706] text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-amber-100 group-hover:text-[#d97706]'
+                              isSrvActive ? 'bg-luxury-gold text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-amber-100 group-hover:text-luxury-gold'
                             }`}>
                               <IconComp className="w-4 h-4" />
                             </div>
                             <div>
-                              <div className="font-display font-extrabold text-xs text-gray-900 group-hover:text-[#d97706] transition-colors">
+                              <div className="font-display font-extrabold text-xs text-gray-900 group-hover:text-luxury-gold transition-colors">
                                 {srv.label}
                               </div>
                               <div className="text-[10px] text-gray-500 font-sans">
@@ -295,7 +302,7 @@ export default function Header({
               <div className="relative">
                 <button
                   onClick={() => setShowLangDropdown(!showLangDropdown)}
-                  className="bg-luxury-gold hover:bg-luxury-gold-dark text-white font-display font-semibold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-semibold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
                   id="language-btn"
                 >
                   <Globe className="w-3.5 h-3.5" />
@@ -417,7 +424,7 @@ export default function Header({
                           onClick={srv.action}
                           className="w-full text-left px-3 py-2 text-xs font-display font-semibold text-gray-700 hover:text-luxury-gold flex items-center gap-2.5 cursor-pointer rounded-lg hover:bg-amber-50/50"
                         >
-                          <IconComp className="w-4 h-4 text-[#d97706]" />
+                          <IconComp className="w-4 h-4 text-luxury-gold" />
                           <span>{srv.label}</span>
                         </button>
                       );

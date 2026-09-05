@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Plane, Users, MapPin, Camera, MessageSquare, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Plane, Hotel, Anchor, Compass, Palmtree, ArrowRight, CheckCircle2, PhoneCall } from 'lucide-react';
 import { openWhatsApp } from '../utils/whatsapp';
 
 interface ExtraServicesProps {
@@ -10,72 +10,89 @@ interface ExtraServicesProps {
 export default function ExtraServices({ lang }: ExtraServicesProps) {
   const services = [
     {
-      id: 'airport-shuttle',
+      id: 'airport-transfer',
       icon: <Plane className="w-7 h-7 text-[#2563eb]" />,
-      badge: lang === 'EN' ? 'Airport Transfer' : 'Drop & Pick Up',
-      title: lang === 'EN' ? 'Airport Shuttle & Drop Off' : 'Shuttle & Drop Bandara',
-      subtitle: lang === 'EN' ? 'Juanda (SUB) & Abdulrachman Saleh (MLG)' : 'Bandara Juanda (Surabaya) & Abd. Saleh (Malang)',
+      badge: lang === 'EN' ? 'Airport Transfer' : 'Bandara Lombok',
+      title: lang === 'EN' ? 'Airport Transfer' : 'Airport Transfer (Bandara LOP)',
+      subtitle: lang === 'EN' ? 'Lombok International Airport (LOP)' : 'Bandara Internasional Lombok ke Hotel / Destinasi',
       description: lang === 'EN'
-        ? 'Punctual private door-to-door shuttle service between Malang/Batu and Surabaya Juanda Airport.'
-        : 'Layanan antar-jemput privat tepat waktu dari/ke Bandara Juanda Surabaya atau Bandara Abdulrachman Saleh Malang.',
+        ? 'Punctual pick-up and drop-off to and from Lombok International Airport with dedicated professional drivers ready to take you to your hotel or destination.'
+        : 'Layanan antar-jemput dari dan menuju Bandara Internasional Lombok dengan driver yang siap mengantarkan Anda ke hotel maupun destinasi tujuan.',
       highlights: [
-        lang === 'EN' ? '24 Hours On-Time Guarantee' : 'Jaminan Tepat Waktu 24 Jam',
-        lang === 'EN' ? 'Luggage Assistance Included' : 'Bantuan Bagasi & BBM Included',
-        lang === 'EN' ? 'Avanza, Innova, & Hiace Fleet' : 'Armada Avanza, Innova, & Hiace'
+        lang === 'EN' ? '24/7 Flight Schedule Monitoring' : 'Monitoring Jadwal Penerbangan 24 Jam',
+        lang === 'EN' ? 'Luggage Assistance Included' : 'Bantuan Bagasi & Pengemudi Ramah',
+        lang === 'EN' ? 'Direct Hotel Drop-off' : 'Antar Langsung ke Depan Pintu Hotel'
       ],
-      priceText: lang === 'EN' ? 'Contact Admin' : 'Hubungi Admin Untuk Tarif',
-      waMessage: 'Halo Yoga Transport, saya ingin memesan Layanan Shuttle & Drop Bandara. Mohon informasi ketersediaannya.'
+      priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
+      waMessage: 'Halo Rinjani Transport, saya ingin memesan layanan Airport Transfer Bandara Internasional Lombok. Mohon info ketersediaan armada dan tarifnya.'
     },
     {
-      id: 'gathering-event',
-      icon: <Users className="w-7 h-7 text-[#d97706]" />,
-      badge: lang === 'EN' ? 'Corporate & Group' : 'Gathering & Outing',
-      title: lang === 'EN' ? 'Corporate & Family Gathering' : 'Corporate & Family Gathering',
-      subtitle: lang === 'EN' ? 'Capacity 10 to 500+ Participants' : 'Kapasitas 10 hingga 500+ Peserta',
+      id: 'hotel-transfer',
+      icon: <Hotel className="w-7 h-7 text-[#d97706]" />,
+      badge: lang === 'EN' ? 'Hotel Transfer' : 'Antar-Jemput Hotel',
+      title: lang === 'EN' ? 'Hotel Transfer' : 'Hotel Transfer',
+      subtitle: lang === 'EN' ? 'Resort, Hotel & Villa Transfers' : 'Hotel ke Bandara, Pelabuhan, & Destinasi',
       description: lang === 'EN'
-        ? 'Complete event & tour package solutions for company outings, school trips, and big family reunions in Malang Batu.'
-        : 'Solusi lengkap kegiatan gathering kantor, outing sekolah, & event keluarga besar dengan armada Medium & Big Bus.',
+        ? 'Comfortable transfers from your hotel to the airport, harbors, or tourist attractions across Lombok without hassle.'
+        : 'Antar-jemput dari hotel menuju bandara, pelabuhan, atau destinasi wisata di Lombok dengan kendaraan yang nyaman dan bersih.',
       highlights: [
-        lang === 'EN' ? 'Custom Itinerary & Meal Plans' : 'Custom Itinerary & Catering',
-        lang === 'EN' ? 'Outbound & Fun Games' : 'Fasilitas Outbound & Fun Games',
-        lang === 'EN' ? 'Big Bus & Hiace Premio Fleet' : 'Armada Hiace Premio & Big Bus'
+        lang === 'EN' ? 'Flexible Pickup Times' : 'Jam Penjemputan Fleksibel Sesuai Jadwal Anda',
+        lang === 'EN' ? 'Clean & Chilled AC Fleet' : 'Armada Bersih, Nyaman, & AC Dingin',
+        lang === 'EN' ? 'Safe and Reliable Service' : 'Pelayanan Aman, Santun, & Terpercaya'
       ],
-      priceText: lang === 'EN' ? 'Custom Package Proposal' : 'Penawaran Khusus Group',
-      waMessage: 'Halo Yoga Transport, saya ingin konsultasi paket Corporate/Family Gathering di Malang & Batu.'
+      priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
+      waMessage: 'Halo Rinjani Transport, saya membutuhkan layanan Hotel Transfer di Lombok. Mohon informasi tarif dan penjemputannya.'
     },
     {
-      id: 'overland-charter',
-      icon: <MapPin className="w-7 h-7 text-emerald-600" />,
-      badge: lang === 'EN' ? 'Intercity Trip' : 'Luar Kota & Dinas',
-      title: lang === 'EN' ? 'Intercity & Official Business Charter' : 'Car Charter & Perjalanan Dinas',
-      subtitle: lang === 'EN' ? 'Java & Bali Overland Coverage' : 'Melayani Seluruh Pulau Jawa & Bali',
+      id: 'pelabuhan-transfer',
+      icon: <Anchor className="w-7 h-7 text-emerald-600" />,
+      badge: lang === 'EN' ? 'Harbor Transfer' : 'Pelabuhan & Gili',
+      title: lang === 'EN' ? 'Harbor Transfer' : 'Pelabuhan Transfer',
+      subtitle: lang === 'EN' ? 'Bangsal, Lembar & Kayangan Ports' : 'Rute Pelabuhan Bangsal (Kawasan Gili) & Lainnya',
       description: lang === 'EN'
-        ? 'Private car rental with experienced driver for official business trips, state visits, and overland journeys across Java & Bali.'
-        : 'Sewa mobil privat harian/mingguan dengan driver berpengalaman untuk perjalanan dinas instansi & eksplorasi antar kota.',
+        ? 'Serving reliable transfers to and from various Lombok harbors, including the popular Bangsal route for tourists heading to the Gili Islands.'
+        : 'Melayani perjalanan menuju maupun dari berbagai pelabuhan, termasuk rute Bangsal untuk wisatawan yang akan melanjutkan perjalanan ke kawasan Gili.',
       highlights: [
-        lang === 'EN' ? 'Professional Uniformed Drivers' : 'Driver Profesional & Ramah',
-        lang === 'EN' ? 'Sterilized Clean Fleet' : 'Armada Steril & Terawat',
-        lang === 'EN' ? 'Flexible Daily Schedule' : 'Jadwal Fleksibel & Bebas Stress'
+        lang === 'EN' ? 'Special Route to Bangsal (Gili Islands)' : 'Spesialis Rute Pelabuhan Bangsal (Gili Trawangan, Meno, Air)',
+        lang === 'EN' ? 'Also Serving Lembar & Kayangan Ports' : 'Melayani Pelabuhan Lembar & Kayangan',
+        lang === 'EN' ? 'Spacious Luggage Trunk' : 'Kapasitas Bagasi Cukup untuk Koper Wisatawan'
       ],
-      priceText: lang === 'EN' ? 'Contact Admin' : 'Hubungi Admin Untuk Tarif',
-      waMessage: 'Halo Yoga Transport, saya tertarik menyewa Car Charter / Perjalanan Dinas Luar Kota.'
+      priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
+      waMessage: 'Halo Rinjani Transport, saya ingin memesan layanan Pelabuhan Transfer (Bangsal / Gili / Pelabuhan lainnya). Mohon info lengkapnya.'
     },
     {
-      id: 'documentation',
-      icon: <Camera className="w-7 h-7 text-purple-600" />,
-      badge: lang === 'EN' ? 'Media & Add-on' : 'Dokumentasi Special',
-      title: lang === 'EN' ? 'Professional Trip Documentation' : 'Dokumentasi Photo & Cinematic Video',
-      subtitle: lang === 'EN' ? 'Drone Pilot & Photographer Guide' : 'Foto, Video Reels/TikTok & Drone',
+      id: 'one-way-transport',
+      icon: <Compass className="w-7 h-7 text-purple-600" />,
+      badge: lang === 'EN' ? 'Point-to-Point' : 'Satu Arah Fleksibel',
+      title: lang === 'EN' ? 'One Way Transport' : 'One Way Transport',
+      subtitle: lang === 'EN' ? 'Direct Destination Drop' : 'Transportasi Satu Arah Tanpa Sewa Seharian',
       description: lang === 'EN'
-        ? 'Capture every moment of your Bromo & Malang trip with professional photographers, drone pilots, and reels creators.'
-        : 'Abadikan setiap momen liburan Bromo & Malang Anda dengan tim fotografer profesional, drone pilot, & videografer reels.',
+        ? 'One-way transport service tailored to your destination, ideal for travelers needing rides from one point to another without full-day rental commitments.'
+        : 'Layanan transportasi satu arah sesuai tujuan, cocok bagi wisatawan yang membutuhkan kendaraan dari satu lokasi ke lokasi lainnya tanpa harus menyewa kendaraan selama seharian.',
       highlights: [
-        lang === 'EN' ? 'All RAW & Edited Photos Handover' : 'Semua Foto Edited & RAW Given',
-        lang === 'EN' ? 'Short Cinematic Video Reels' : 'Bonus Video Reels Short Cinematic',
-        lang === 'EN' ? 'Friendly Photographers' : 'Kamera Mirrorless & Drone HD'
+        lang === 'EN' ? 'Economical & Direct Drop' : 'Lebih Hemat & Efisien Sesuai Kebutuhan',
+        lang === 'EN' ? 'No Full-day Rental Needed' : 'Tidak Perlu Komitmen Sewa 1 Hari Penuh',
+        lang === 'EN' ? 'Custom Route Anywhere in Lombok' : 'Bisa Menjangkau Berbagai Sudut Lombok'
       ],
-      priceText: lang === 'EN' ? 'Special Add-on Rate' : 'Paket Tambahan Terjangkau',
-      waMessage: 'Halo Yoga Transport, saya ingin menambah layanan Dokumentasi Foto & Drone untuk trip saya.'
+      priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
+      waMessage: 'Halo Rinjani Transport, saya membutuhkan layanan One Way Transport dari [Lokasi Jemput] ke [Lokasi Tujuan]. Mohon informasi tarifnya.'
+    },
+    {
+      id: 'wisata-tour-lombok',
+      icon: <Palmtree className="w-7 h-7 text-amber-600" />,
+      badge: lang === 'EN' ? 'Island Exploration' : 'Tour Wisata',
+      title: lang === 'EN' ? 'Wisata & Tour Lombok' : 'Wisata & Tour Lombok',
+      subtitle: lang === 'EN' ? 'Highlands, Waterfalls & Beaches' : 'Eksplorasi Destinasi Populer Bersama Keluarga/Rombongan',
+      description: lang === 'EN'
+        ? 'Dedicated transportation to explore popular destinations in Lombok, perfect for both private individual trips and family/group vacations.'
+        : 'Transportasi untuk menjelajahi berbagai destinasi wisata populer di Lombok, baik untuk perjalanan pribadi maupun bersama keluarga/rombongan.',
+      highlights: [
+        lang === 'EN' ? 'Sembalun, Tetebatu, Waterfalls & Beaches' : 'Sembalun, Tetebatu, Air Terjun & Pantai Eksotis',
+        lang === 'EN' ? 'Flexible Itinerary on Request' : 'Rute & Jadwal Fleksibel Menyesuaikan Keinginan Anda',
+        lang === 'EN' ? 'Local Driver with Destination Insights' : 'Driver Lokal yang Mengetahui Spot Terbaik & Rekomendasi Kuliner'
+      ],
+      priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
+      waMessage: 'Halo Rinjani Transport, saya ingin konsultasi paket Wisata & Tour Lombok untuk keluarga/rombongan. Mohon rekomendasi rutenya.'
     }
   ];
 
@@ -89,97 +106,81 @@ export default function ExtraServices({ lang }: ExtraServicesProps) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="font-display font-bold text-xs sm:text-sm text-[#d97706] tracking-widest uppercase bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200/60 inline-block">
-            {lang === 'EN' ? 'ADDITIONAL SERVICES' : 'LAYANAN TAMBAHAN PILIHAN'}
+          <span className="font-display font-bold text-xs sm:text-sm text-luxury-gold tracking-widest uppercase bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200/60 inline-block">
+            {lang === 'EN' ? 'ADDITIONAL SERVICES' : 'LAYANAN TAMBAHAN'}
           </span>
           
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 tracking-tight uppercase">
-            {lang === 'EN' ? 'COMPLETE TRANSPORT SOLUTIONS' : 'LAYANAN PERJALANAN LENGKAP KAMI'}
+            {lang === 'EN' ? 'COMPLETE TRANSPORT SOLUTIONS' : 'LAYANAN PERJALANAN LOMBOK'}
           </h2>
 
-          <div className="w-16 h-1 bg-[#f59e0b] rounded-full mx-auto my-3" />
+          <div className="w-16 h-1 bg-luxury-gold rounded-full mx-auto my-3" />
 
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
             {lang === 'EN'
-              ? 'Beyond tour packages, we provide tailored airport shuttles, corporate gathering events, and intercity charters.'
-              : 'Selain paket wisata, kami menyediakan layanan antar-jemput bandara, gathering perusahaan, hingga sewa luar kota.'}
+              ? 'Enjoy convenient transfers and customized transportation options tailored to your itinerary in Lombok.'
+              : 'Nikmati kemudahan antar-jemput dan layanan transportasi fleksibel yang disesuaikan dengan rencana perjalanan Anda di Lombok.'}
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Services Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              key={service.id}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className={`rounded-3xl p-6 sm:p-8 bg-white border border-gray-100 hover:border-luxury-gold/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group ${
+                index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+              }`}
             >
-              {/* Background Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all pointer-events-none" />
-
               <div className="space-y-4">
-                
-                {/* Header Row: Icon + Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-amber-50 flex items-center justify-center transition-colors border border-gray-100 group-hover:border-amber-200">
                     {service.icon}
                   </div>
-                  <span className="font-display font-bold text-xs uppercase px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
+                  <span className="text-[11px] font-display font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-50 text-luxury-gold border border-amber-200/50">
                     {service.badge}
                   </span>
                 </div>
 
-                {/* Service Titles */}
                 <div>
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-gray-900 group-hover:text-[#d97706] transition-colors leading-snug">
+                  <h3 className="font-display font-bold text-xl text-gray-900 group-hover:text-luxury-gold transition-colors text-left">
                     {service.title}
                   </h3>
-                  <p className="font-display font-semibold text-xs text-[#2563eb] mt-0.5">
+                  <p className="text-xs text-gray-400 font-medium mt-0.5 text-left">
                     {service.subtitle}
                   </p>
                 </div>
 
-                {/* Description */}
-                <p className="font-sans text-gray-600 text-sm leading-relaxed">
+                <p className="font-sans text-xs sm:text-sm text-gray-600 leading-relaxed text-left">
                   {service.description}
                 </p>
 
-                {/* Feature Highlights */}
+                {/* Highlights checkmarks */}
                 <div className="space-y-2 pt-2 border-t border-gray-100">
-                  {service.highlights.map((hl, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{hl}</span>
+                  {service.highlights.map((item, hIdx) => (
+                    <div key={hIdx} className="flex items-start gap-2 text-xs text-gray-600">
+                      <CheckCircle2 className="w-4 h-4 text-luxury-gold shrink-0 mt-0.5" />
+                      <span className="text-left">{item}</span>
                     </div>
                   ))}
                 </div>
-
               </div>
 
-              {/* Card Footer: Price & CTA Action */}
-              <div className="pt-6 mt-6 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">
-                    {lang === 'EN' ? 'ESTIMATE RATE' : 'TARIF ESTIMASI'}
-                  </span>
-                  <span className="font-display font-bold text-base sm:text-lg text-[#d97706]">
-                    {service.priceText}
-                  </span>
-                </div>
-
+              {/* Action Button */}
+              <div className="mt-8 pt-4 border-t border-gray-100">
                 <button
                   onClick={() => handleWhatsApp(service.waMessage)}
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-display font-bold text-xs py-3 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer shrink-0"
+                  className="w-full py-3 px-4 rounded-xl bg-gray-900 hover:bg-luxury-gold text-white font-display font-bold text-xs uppercase tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm group-hover:shadow"
                 >
-                  <MessageSquare className="w-4 h-4 fill-current" />
-                  <span>{lang === 'EN' ? 'Book Service' : 'Pesan Layanan'}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <PhoneCall className="w-4 h-4" />
+                  <span>{service.priceText}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-
             </motion.div>
           ))}
         </div>

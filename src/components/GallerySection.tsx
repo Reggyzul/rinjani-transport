@@ -13,6 +13,7 @@ import {
   ZoomIn
 } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
+import { DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
 interface GallerySectionProps {
   lang: 'ID' | 'EN';
@@ -43,7 +44,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       category: 'tour',
       location: 'Malang Jawa Timur',
       tag: 'Study & Educational Trip',
-      description: 'Dokumentasi rombongan peserta kunjungan edukasi & wisata di Orlin Farm bersama unit kendaraan Yoga Transport Malang.'
+      description: 'Dokumentasi rombongan peserta kunjungan edukasi & wisata di Lombok bersama unit kendaraan Rinjani Transport.'
     },
     {
       id: 'galeri-2',
@@ -51,9 +52,9 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       title: 'Rombongan Wisata Premium Coach',
       titleEn: 'Touring Group with Premium Coach',
       category: 'bus',
-      location: 'Kawasan Wisata Batu Malang',
-      tag: 'Sewa Bus & Long Elf VIP',
-      description: 'Foto kenangan rombongan peserta tour wisata Malang-Batu bersama armada bus pariwisata Premium Coach Yoga Transport.'
+      location: 'Kawasan Wisata Lombok',
+      tag: 'Sewa Bus & Hiace VIP',
+      description: 'Foto kenangan rombongan peserta tour wisata Lombok bersama armada Hiace & bus pariwisata Rinjani Transport.'
     },
     {
       id: 'galeri-3',
@@ -103,7 +104,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
       category: 'tour',
       location: 'Dino Mall Jatim Park 3 Kota Batu',
       tag: 'City Tour Batu Malang',
-      description: 'Keceriaan wisatawan saat tiba di tempat hiburan populer Dino Mall Jatim Park 3 Kota Batu bersama tim Yoga Transport.'
+      description: 'Keceriaan wisatawan saat tiba di destinasi wisata populer Lombok bersama tim Rinjani Transport.'
     }
   ];
 
@@ -112,8 +113,8 @@ export default function GallerySection({ lang }: GallerySectionProps) {
     : galleryData.filter(item => item.category === activeFilter);
 
   const handleWhatsApp = (title: string) => {
-    const waNumber = '628813305066';
-    const msg = `Halo Yoga Transport, saya tertarik dengan paket trip & armada seperti di galeri (${title}). Boleh info penawarannya?`;
+    const waNumber = DEFAULT_WA_NUMBER;
+    const msg = `Halo Rinjani Transport, saya tertarik dengan paket trip & armada seperti di galeri (${title}). Boleh info penawarannya?`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(msg)}`, '_blank', 'noreferrer');
   };
 
@@ -136,8 +137,8 @@ export default function GallerySection({ lang }: GallerySectionProps) {
 
           <p className="font-sans text-gray-600 text-sm sm:text-base leading-relaxed">
             {lang === 'EN'
-              ? 'Real documentation photos of our valued guests enjoying holiday trips, corporate bus charters, and beach adventures in Malang & Bromo.'
-              : 'Kumpulan foto momen berkesan bersama para pelanggan setia Yoga Transport Malang saat perjalanan wisata, sewa bus rombongan, hingga trip pantai.'}
+              ? 'Real documentation photos of our valued guests enjoying holiday trips, transfers, and adventures across Lombok.'
+              : 'Kumpulan foto momen berkesan bersama para pelanggan setia Rinjani Transport saat perjalanan wisata, antar-jemput bandara & pelabuhan, hingga trip Sembalun.'}
           </p>
         </div>
 
@@ -269,7 +270,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
               {lang === 'EN' ? 'Want Your Trip Photos Like This?' : 'Ingin Momen Liburan Anda Diabadikan Seperti Ini?'}
             </h3>
             <p className="font-sans text-gray-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
-              Tim Yoga Transport Malang siap melayani paket tur pribadi, keluarga, rombongan dinas, hingga sewa bus pariwisata berkualitas.
+              Tim Rinjani Transport Lombok siap melayani paket tur pribadi, keluarga, rombongan dinas, hingga antar-jemput bandara & pelabuhan berkualitas.
             </p>
           </div>
 
@@ -347,7 +348,7 @@ export default function GallerySection({ lang }: GallerySectionProps) {
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
                   <span className="text-xs text-gray-500 font-semibold">
-                    Yoga Transport Malang - Official Gallery
+                    Rinjani Transport Lombok - Official Gallery
                   </span>
 
                   <button

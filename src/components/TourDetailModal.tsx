@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Clock, CheckCircle2, AlertCircle, MapPin, Compass, MessageSquare, Sparkles, Award, Star, Gift } from 'lucide-react';
 import { TourPackage, PackageTier } from '../data/tours';
 import { motion, AnimatePresence } from 'motion/react';
+import { DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
 interface TourDetailModalProps {
   tour: TourPackage | null;
@@ -17,7 +18,7 @@ export default function TourDetailModal({ tour, onClose, lang }: TourDetailModal
   const currentTier = tour.packageTiers.find(t => t.id === selectedTierId) || tour.packageTiers[1];
 
   const handleWhatsApp = () => {
-    const waNumber = '628813305066';
+    const waNumber = DEFAULT_WA_NUMBER;
     const tierText = currentTier ? ` [Kategori ${currentTier.name.toUpperCase()}: ${currentTier.inclusions.join(', ')}]` : '';
     const fullMsg = `${tour.waMessage}${tierText}`;
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(fullMsg)}`, '_blank', 'noreferrer');

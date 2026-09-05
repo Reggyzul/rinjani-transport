@@ -1,7 +1,7 @@
 import React from 'react';
 import { Headset, Phone, MapPin, Instagram } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
-import { openWhatsApp } from '../utils/whatsapp';
+import { openWhatsApp, DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
 interface FooterProps {
   onNavClick: (sectionId: string) => void;
@@ -12,10 +12,10 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
   const t = TRANSLATIONS[lang];
 
   return (
-    <footer id="contact" className="bg-luxury-black text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden">
+    <footer id="contact" className="bg-luxury-black text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden font-sans">
       
       {/* Absolute background accent line */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-luxury-gold via-gold-300 to-luxury-gold" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-luxury-gold via-amber-300 to-luxury-gold" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -23,15 +23,18 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-white/10 items-center">
           <div className="space-y-2 text-left">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-luxury-gold animate-pulse">
-              YOGA TRANSPORT MALANG
+              RINJANI TRANSPORT LOMBOK
             </h3>
             <p className="font-sans text-sm text-gray-300">
               {t.footer_pre_desc}
             </p>
+            <p className="font-display font-semibold text-xs tracking-wider text-luxury-gold uppercase">
+              Your Journey, Our Priority.
+            </p>
           </div>
           <div className="flex justify-start md:justify-end">
             <div className="font-display font-black text-2xl text-white/40 tracking-wider">
-              EST. 2026
+              LOMBOK, NTB
             </div>
           </div>
         </div>
@@ -42,15 +45,17 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
           {/* Column 1: Brand & Office Address */}
           <div className="md:col-span-5 space-y-6 text-left">
             <div className="flex items-center gap-3">
-              <picture>
-                <source srcSet="/logo.avif" type="image/avif" />
-                <source srcSet="/logo.png" type="image/png" />
-                <img
-                  src="/logo.png"
-                  alt="Yoga Transport Emblem Logo"
-                  className="h-20 sm:h-24 w-auto max-h-[96px] object-contain filter drop-shadow-xl"
-                />
-              </picture>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-luxury-gold to-amber-600 flex items-center justify-center text-white font-black text-2xl shadow-lg">
+                R
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display font-black text-xl text-white tracking-tight">
+                  RINJANI TRANSPORT
+                </span>
+                <span className="text-[10px] text-luxury-gold uppercase font-bold tracking-widest">
+                  Your Journey, Our Priority
+                </span>
+              </div>
             </div>
 
             <p className="font-sans text-xs text-gray-400 leading-relaxed max-w-sm">
@@ -62,7 +67,7 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5" />
                 <span>{t.footer_office}</span>
               </div>
-              <p>©2026 Yoga Transport Malang. {t.footer_rights}</p>
+              <p>©2026 Rinjani Transport. {t.footer_rights}</p>
             </div>
           </div>
 
@@ -83,13 +88,18 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('services')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_services}
+                <button onClick={() => onNavClick('cars')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
+                  {t.nav_cars}
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavClick('cars')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
-                  {t.nav_cars}
+                <button onClick={() => onNavClick('tours')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
+                  {t.nav_tours}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavClick('extra-services')} className="hover:text-luxury-gold transition-colors cursor-pointer text-left w-full">
+                  {t.nav_services}
                 </button>
               </li>
               <li>
@@ -118,26 +128,8 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                     onClick={() => openWhatsApp()}
                     className="text-sm font-display font-bold text-white hover:text-luxury-gold mt-0.5 block cursor-pointer text-left"
                   >
-                    08813305066
+                    0859-6428-0931
                   </button>
-                </div>
-              </div>
-
-              {/* Instagram Official */}
-              <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0">
-                  <Instagram className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase font-bold text-gray-500">Instagram Official</p>
-                  <a 
-                    href="https://instagram.com/yoga_transport"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-display font-bold text-rose-400 hover:text-luxury-gold mt-0.5 block"
-                  >
-                    @yoga_transport
-                  </a>
                 </div>
               </div>
 
@@ -148,25 +140,25 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold text-gray-500">Direct Call</p>
-                  <a href="tel:+628813305066" className="font-semibold text-white mt-0.5 block hover:text-luxury-gold">
-                    08813305066
+                  <a href={`tel:+${DEFAULT_WA_NUMBER}`} className="font-semibold text-white mt-0.5 block hover:text-luxury-gold">
+                    0859-6428-0931
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Google Map Embed */}
+            {/* Google Map Embed (Lombok) */}
             <div className="pt-2">
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg w-full h-36 bg-white/5">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3533816434454!2d112.64539121477793!3d-7.962382994265147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62854378f44ff%3A0xe54e60938bf8c60f!2sJl.%20Rawa%2C%20Bunulrejo%2C%20Kec.%20Blimbing%2C%20Kota%20Malang%2C%20Jawa%20Timur%2065123!5e0!3m2!1sid!2sid!4v1689999999999!5m2!1sid!2sid"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252445.6568972844!2d116.1438902!3d-8.5830695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb70e70b33b09%3A0xb35a0f12c1b827e8!2sLombok%2C%20West%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
-                  allowFullScreen={true}
+                  allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Yoga Transport Malang Location Map"
+                  title="Rinjani Transport Lombok Location Map"
                 ></iframe>
               </div>
             </div>
@@ -175,9 +167,10 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
         </div>
 
-        {/* Lower Disclaimer */}
-        <div className="border-t border-white/10 pt-8 text-center text-[10px] text-gray-500 font-sans leading-relaxed">
-          {t.footer_disclaimer}
+        {/* Bottom copyright line */}
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
+          <p>©2026 Rinjani Transport. {t.footer_rights}</p>
+          <p className="text-gray-400">{t.footer_disclaimer}</p>
         </div>
 
       </div>
