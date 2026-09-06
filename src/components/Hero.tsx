@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, MessageSquare, Car, Sparkles, MapPin } from 'lucide-react';
+import { MessageSquare, Car, Sparkles, MapPin } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { openWhatsApp } from '../utils/whatsapp';
 
@@ -61,13 +61,6 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-  };
 
   const currentSlide = slides[currentSlideIndex];
 
@@ -170,26 +163,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
 
       </div>
 
-      {/* Slider Left / Right arrows */}
-      <div className="absolute inset-y-0 left-4 sm:left-8 z-30 flex items-center">
-        <button
-          onClick={prevSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer group"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
-        </button>
-      </div>
 
-      <div className="absolute inset-y-0 right-4 sm:right-8 z-30 flex items-center">
-        <button
-          onClick={nextSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer group"
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
-        </button>
-      </div>
 
       {/* Carousel Dots indicator */}
       <div className="absolute bottom-6 z-30 flex items-center gap-2.5">
