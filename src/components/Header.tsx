@@ -305,11 +305,12 @@ export default function Header({
               <div className="relative">
                 <button
                   onClick={() => setShowLangDropdown(!showLangDropdown)}
-                  className="bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-semibold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="bg-luxury-gold hover:bg-[#b8860b] text-white font-display font-semibold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
                   id="language-btn"
+                  aria-label="Select Language"
                 >
                   <Globe className="w-3.5 h-3.5" />
-                  <span>{lang === 'ID' ? 'ID' : 'EN'}</span>
+                  <span>{lang === 'EN' ? 'EN' : 'ID'}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
                 
@@ -319,27 +320,27 @@ export default function Header({
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl py-1 border border-gray-100 z-50 animate-fade-in"
+                      className="absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-xl py-1.5 border border-gray-100 z-50 animate-fade-in"
                     >
-                      <button
-                        onClick={() => {
-                          setLang('ID');
-                          setShowLangDropdown(false);
-                        }}
-                        className="w-full text-left px-4 py-2 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between cursor-pointer"
-                      >
-                        <span>Indonesia</span>
-                        {lang === 'ID' && <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></span>}
-                      </button>
                       <button
                         onClick={() => {
                           setLang('EN');
                           setShowLangDropdown(false);
                         }}
-                        className="w-full text-left px-4 py-2 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between cursor-pointer"
+                        className="w-full text-left px-4 py-2.5 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between cursor-pointer transition-colors"
                       >
-                        <span>English</span>
-                        {lang === 'EN' && <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></span>}
+                        <span className="font-semibold">English (EN)</span>
+                        {lang === 'EN' && <span className="w-2 h-2 rounded-full bg-luxury-gold"></span>}
+                      </button>
+                      <button
+                        onClick={() => {
+                          setLang('ID');
+                          setShowLangDropdown(false);
+                        }}
+                        className="w-full text-left px-4 py-2.5 text-xs font-display font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between cursor-pointer transition-colors"
+                      >
+                        <span>Bahasa Indonesia</span>
+                        {lang === 'ID' && <span className="w-2 h-2 rounded-full bg-luxury-gold"></span>}
                       </button>
                     </motion.div>
                   )}
@@ -460,8 +461,46 @@ export default function Header({
                 {t.nav_contact}
               </button>
               
+              {/* Mobile Language Switcher */}
+              <div className="pt-3 pb-1 border-t border-gray-100 my-2">
+                <div className="px-4 py-1 text-[11px] font-display font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>{lang === 'EN' ? 'Language / Bahasa' : 'Bahasa / Language'}</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 pt-1.5">
+                  <button
+                    onClick={() => {
+                      setLang('EN');
+                      setIsOpen(false);
+                    }}
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-display font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                      lang === 'EN'
+                        ? 'bg-luxury-gold text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span>English</span>
+                    {lang === 'EN' && <span className="w-1.5 h-1.5 rounded-full bg-white"></span>}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setLang('ID');
+                      setIsOpen(false);
+                    }}
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-display font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                      lang === 'ID'
+                        ? 'bg-luxury-gold text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span>Indonesia</span>
+                    {lang === 'ID' && <span className="w-1.5 h-1.5 rounded-full bg-white"></span>}
+                  </button>
+                </div>
+              </div>
+
               {/* Mobile Booking Button */}
-              <div className="pt-4">
+              <div className="pt-2">
                 <button
                   onClick={() => {
                     onBookingClick();

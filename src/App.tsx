@@ -27,7 +27,23 @@ export default function App() {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showOneWayModal, setShowOneWayModal] = useState(false);
-  const [lang, setLang] = useState<'ID' | 'EN'>('ID');
+  const [lang, setLang] = useState<'ID' | 'EN'>(() => {
+    try {
+      const saved = localStorage.getItem('rinjani_lang');
+      return saved === 'ID' || saved === 'EN' ? saved : 'EN';
+    } catch {
+      return 'EN';
+    }
+  });
+
+  const handleLanguageChange = (newLang: 'ID' | 'EN') => {
+    setLang(newLang);
+    try {
+      localStorage.setItem('rinjani_lang', newLang);
+    } catch {
+      // ignore
+    }
+  };
   
   const t = TRANSLATIONS[lang];
 
@@ -118,7 +134,7 @@ export default function App() {
         activeSection={activeSection} 
         onNavClick={handleNavClick} 
         lang={lang} 
-        setLang={setLang} 
+        setLang={handleLanguageChange} 
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         onBookingClick={() => setSelectedCar(CARS[0])}

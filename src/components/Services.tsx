@@ -25,16 +25,16 @@ export default function Services({ lang }: ServicesProps) {
       description: t.service_tour_desc,
     },
     {
-      id: 'bromo',
-      icon: <Mountain className="w-8 h-8 text-luxury-gold" />,
-      title: t.service_bromo_title,
-      description: t.service_bromo_desc,
+      id: 'airport',
+      icon: <Plane className="w-8 h-8 text-luxury-gold" />,
+      title: t.service_airport_title,
+      description: t.service_airport_desc,
     },
     {
-      id: 'shuttle',
-      icon: <Plane className="w-8 h-8 text-luxury-gold" />,
-      title: t.service_shuttle_title,
-      description: t.service_shuttle_desc,
+      id: 'hotel',
+      icon: <Mountain className="w-8 h-8 text-luxury-gold" />,
+      title: t.service_hotel_title,
+      description: t.service_hotel_desc,
     },
   ];
 

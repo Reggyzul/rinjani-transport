@@ -21,7 +21,9 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
         : 'Nikmati panorama pegunungan nan megah, udara sejuk lembah, dan bukit eksotis di Sembalun bersama Rinjani Transport.',
       image: '/hero_sembalun.jpg',
       location: 'Sembalun, Lombok Timur',
-      waMsg: 'Halo Rinjani Transport, saya ingin konsultasi mengenai paket wisata Sembalun & perbukitan di Lombok.'
+      waMsg: lang === 'EN'
+        ? 'Hello Rinjani Transport, I would like to consult about the Sembalun & Mount Rinjani tour package in Lombok.'
+        : 'Halo Rinjani Transport, saya ingin konsultasi mengenai paket wisata Sembalun & perbukitan di Lombok.'
     },
     {
       id: 'benang-kelambu',
@@ -31,7 +33,9 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
         : 'Rasakan kesegaran tirai air alami di tengah tebing hijau asri bersama driver lokal berpengalaman kami.',
       image: '/hero_benang_kelambu.jpg',
       location: 'Benang Kelambu, Lombok Tengah',
-      waMsg: 'Halo Rinjani Transport, saya tertarik dengan tour Air Terjun Benang Kelambu. Mohon informasi ketersediaan armadanya.'
+      waMsg: lang === 'EN'
+        ? 'Hello Rinjani Transport, I am interested in the Benang Kelambu Waterfall tour. Please inform me about car availability.'
+        : 'Halo Rinjani Transport, saya tertarik dengan tour Air Terjun Benang Kelambu. Mohon informasi ketersediaan armadanya.'
     },
     {
       id: 'tetebatu',
@@ -41,7 +45,9 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
         : 'Eksplorasi hamparan sawah terasering, perkebunan alami, dan satwa primata di kaki Gunung Rinjani.',
       image: '/hero_tetebatu.jpg',
       location: 'Tetebatu, Lombok Timur',
-      waMsg: 'Halo Rinjani Transport, saya ingin bertanya tentang paket tour Tetebatu & Monkey Forest.'
+      waMsg: lang === 'EN'
+        ? 'Hello Rinjani Transport, I would like to ask about the Tetebatu & Monkey Forest tour package.'
+        : 'Halo Rinjani Transport, saya ingin bertanya tentang paket tour Tetebatu & Monkey Forest.'
     }
   ];
 
@@ -87,10 +93,15 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
           <img
             src={currentSlide.image}
             alt={currentSlide.title}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center brightness-[1.04] contrast-[1.04] saturate-[1.08]"
           />
-          {/* Dark Overlay Gradient */}
-          <div className="absolute inset-0 bg-black/65 backdrop-brightness-90" />
+          {/* Subtle multi-layer scrim: bright, sharp background while ensuring text legibility */}
+          {/* 1. Very light global tint instead of harsh dark overlay */}
+          <div className="absolute inset-0 bg-black/25" />
+          {/* 2. Top gradient to protect header navigation contrast */}
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
+          {/* 3. Bottom smooth fade into next section */}
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent pointer-events-none" />
         </motion.div>
       </AnimatePresence>
 
@@ -104,10 +115,10 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4 sm:space-y-6 flex flex-col items-center"
+            className="relative space-y-4 sm:space-y-6 flex flex-col items-center px-6 py-8 sm:px-10 sm:py-10 rounded-3xl bg-black/35 backdrop-blur-[2.5px] border border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] max-w-4xl"
           >
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-luxury-gold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-luxury-gold shadow-lg">
               <Sparkles className="w-3.5 h-3.5 animate-pulse" />
               <span className="font-display font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase">
                 YOUR JOURNEY, OUR PRIORITY
@@ -115,17 +126,17 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             </div>
 
             {/* Main Heading */}
-            <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white max-w-4xl leading-[1.1] drop-shadow-md">
+            <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white max-w-4xl leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               {currentSlide.title}
             </h1>
 
             {/* Subtitle description */}
-            <p className="font-sans text-gray-200 text-sm sm:text-lg max-w-2xl leading-relaxed drop-shadow">
+            <p className="font-sans text-gray-100 text-sm sm:text-lg max-w-2xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-medium">
               {currentSlide.subtitle}
             </p>
 
             {/* Destination Pill */}
-            <div className="inline-flex items-center gap-1.5 text-xs text-luxury-gold bg-white/10 backdrop-blur px-3.5 py-1 rounded-full border border-white/10">
+            <div className="inline-flex items-center gap-1.5 text-xs text-luxury-gold bg-black/50 backdrop-blur px-3.5 py-1 rounded-full border border-white/20 shadow-md">
               <MapPin className="w-3.5 h-3.5" />
               <span>{currentSlide.location}</span>
             </div>
@@ -147,7 +158,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onRentClick}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border border-white/30 font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
                 id="hero-cars-btn"
               >
                 <Car className="w-4 h-4" />
