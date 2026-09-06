@@ -96,8 +96,8 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             className="w-full h-full object-cover object-center brightness-[1.04] contrast-[1.04] saturate-[1.08]"
           />
           {/* Subtle multi-layer scrim: bright, sharp background while ensuring text legibility */}
-          {/* 1. Very light global tint instead of harsh dark overlay */}
-          <div className="absolute inset-0 bg-black/25" />
+          {/* 1. Light global tint across the full canvas so text blends seamlessly without any box */}
+          <div className="absolute inset-0 bg-black/35" />
           {/* 2. Top gradient to protect header navigation contrast */}
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/70 via-black/20 to-transparent pointer-events-none" />
           {/* 3. Bottom smooth fade into next section */}
@@ -115,10 +115,10 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="relative space-y-4 sm:space-y-6 flex flex-col items-center px-6 py-8 sm:px-10 sm:py-10 rounded-3xl bg-black/35 backdrop-blur-[2.5px] border border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] max-w-4xl"
+            className="space-y-4 sm:space-y-6 flex flex-col items-center max-w-4xl"
           >
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-luxury-gold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-luxury-gold shadow-md">
               <Sparkles className="w-3.5 h-3.5 animate-pulse" />
               <span className="font-display font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase">
                 YOUR JOURNEY, OUR PRIORITY
@@ -136,7 +136,7 @@ export default function Hero({ onRentClick, lang }: HeroProps) {
             </p>
 
             {/* Destination Pill */}
-            <div className="inline-flex items-center gap-1.5 text-xs text-luxury-gold bg-black/50 backdrop-blur px-3.5 py-1 rounded-full border border-white/20 shadow-md">
+            <div className="inline-flex items-center gap-1.5 text-xs text-luxury-gold bg-black/40 backdrop-blur px-3.5 py-1 rounded-full border border-white/15 shadow-sm">
               <MapPin className="w-3.5 h-3.5" />
               <span>{currentSlide.location}</span>
             </div>
