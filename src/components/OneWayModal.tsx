@@ -20,7 +20,8 @@ export default function OneWayModal({ isOpen, onClose, lang }: OneWayModalProps)
     const matchesSearch =
       route.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       route.to.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      route.description.toLowerCase().includes(searchQuery.toLowerCase());
+      route.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (route.descriptionEn && route.descriptionEn.toLowerCase().includes(searchQuery.toLowerCase()));
 
     const matchesCategory = activeCategory === 'all' || route.category === activeCategory;
 
@@ -28,7 +29,10 @@ export default function OneWayModal({ isOpen, onClose, lang }: OneWayModalProps)
   });
 
   const handleBooking = (route: OneWayRoute) => {
-    const waUrl = `https://api.whatsapp.com/send?phone=${DEFAULT_WA_NUMBER}&text=${encodeURIComponent(route.waMessage)}`;
+    const text = lang === 'EN'
+      ? `Hello Rinjani Transport, I would like to book a private transfer: ${route.name} (${route.from} -> ${route.to}). Please provide vehicle availability and pricing.`
+      : route.waMessage;
+    const waUrl = `https://api.whatsapp.com/send?phone=${DEFAULT_WA_NUMBER}&text=${encodeURIComponent(text)}`;
     window.open(waUrl, '_blank', 'noreferrer');
   };
 
@@ -68,7 +72,7 @@ export default function OneWayModal({ isOpen, onClose, lang }: OneWayModalProps)
                   {lang === 'EN' ? 'PRIVATE TRANSFER ROUTES' : 'LAYANAN TRANSPORTASI PRIVAT'}
                 </span>
                 <span className="text-luxury-gold font-display font-bold text-xs uppercase tracking-widest">
-                  9 RUTE SENARU PP
+                  {lang === 'EN' ? '9 SENARU RETURN ROUTES' : '9 RUTE SENARU PP'}
                 </span>
               </div>
               <h2 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">
@@ -171,7 +175,7 @@ export default function OneWayModal({ isOpen, onClose, lang }: OneWayModalProps)
                       <div className="flex items-start justify-between gap-2 border-b border-gray-100 pb-3">
                         <div className="space-y-1">
                           <span className="text-[9px] font-display font-bold uppercase tracking-wider text-luxury-gold bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60 inline-block">
-                            ONE WAY / PP
+                            {lang === 'EN' ? 'ONE WAY / RETURN' : 'ONE WAY / PP'}
                           </span>
                           <h3 className="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-luxury-gold transition-colors leading-snug">
                             {route.name}
@@ -216,7 +220,7 @@ export default function OneWayModal({ isOpen, onClose, lang }: OneWayModalProps)
                     {/* Booking Action Footer */}
                     <div className="pt-3 border-t border-gray-100 space-y-2">
                       <div className="flex items-center justify-between text-[11px] text-gray-500 font-sans">
-                        <span>Fasilitas: Mobil AC + Driver + BBM</span>
+                        <span>{lang === 'EN' ? 'Facility: Private AC Car + Driver + Fuel' : 'Fasilitas: Mobil AC + Driver + BBM'}</span>
                       </div>
                       <button
                         onClick={() => handleBooking(route)}

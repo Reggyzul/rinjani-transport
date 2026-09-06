@@ -25,7 +25,9 @@ export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProp
         lang === 'EN' ? 'Direct Hotel Drop-off' : 'Antar Langsung ke Depan Pintu Hotel'
       ],
       priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
-      waMessage: 'Halo Rinjani Transport, saya ingin memesan layanan Airport Transfer Bandara Internasional Lombok. Mohon info ketersediaan armada dan tarifnya.'
+      waMessage: lang === 'EN'
+        ? 'Hello Rinjani Transport, I would like to book an Airport Transfer service for Lombok International Airport. Please provide vehicle options and rates.'
+        : 'Halo Rinjani Transport, saya ingin memesan layanan Airport Transfer Bandara Internasional Lombok. Mohon info ketersediaan armada dan tarifnya.'
     },
     {
       id: 'hotel-transfer',
@@ -42,7 +44,9 @@ export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProp
         lang === 'EN' ? 'Safe and Reliable Service' : 'Pelayanan Aman, Santun, & Terpercaya'
       ],
       priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
-      waMessage: 'Halo Rinjani Transport, saya membutuhkan layanan Hotel Transfer di Lombok. Mohon informasi tarif dan penjemputannya.'
+      waMessage: lang === 'EN'
+        ? 'Hello Rinjani Transport, I need a Hotel Transfer service in Lombok. Please provide rates and pickup details.'
+        : 'Halo Rinjani Transport, saya membutuhkan layanan Hotel Transfer di Lombok. Mohon informasi tarif dan penjemputannya.'
     },
     {
       id: 'pelabuhan-transfer',
@@ -59,7 +63,9 @@ export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProp
         lang === 'EN' ? 'Spacious Luggage Trunk' : 'Kapasitas Bagasi Cukup untuk Koper Wisatawan'
       ],
       priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
-      waMessage: 'Halo Rinjani Transport, saya ingin memesan layanan Pelabuhan Transfer (Bangsal / Gili / Pelabuhan lainnya). Mohon info lengkapnya.'
+      waMessage: lang === 'EN'
+        ? 'Hello Rinjani Transport, I would like to book a Harbor Transfer (Bangsal / Gili / other ports). Please share details and pricing.'
+        : 'Halo Rinjani Transport, saya ingin memesan layanan Pelabuhan Transfer (Bangsal / Gili / Pelabuhan lainnya). Mohon info lengkapnya.'
     },
     {
       id: 'one-way-transport',
@@ -76,13 +82,15 @@ export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProp
         lang === 'EN' ? 'Custom Route Anywhere in Lombok' : 'Bisa Menjangkau Berbagai Sudut Lombok'
       ],
       priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
-      waMessage: 'Halo Rinjani Transport, saya membutuhkan layanan One Way Transport dari [Lokasi Jemput] ke [Lokasi Tujuan]. Mohon informasi tarifnya.'
+      waMessage: lang === 'EN'
+        ? 'Hello Rinjani Transport, I need a One Way Transport from [Pickup Location] to [Destination]. Please provide the price quotation.'
+        : 'Halo Rinjani Transport, saya membutuhkan layanan One Way Transport dari [Lokasi Jemput] ke [Lokasi Tujuan]. Mohon informasi tarifnya.'
     },
     {
       id: 'wisata-tour-lombok',
       icon: <Palmtree className="w-7 h-7 text-amber-600" />,
       badge: lang === 'EN' ? 'Island Exploration' : 'Tour Wisata',
-      title: lang === 'EN' ? 'Wisata & Tour Lombok' : 'Wisata & Tour Lombok',
+      title: lang === 'EN' ? 'Lombok Tour & Sightseeing' : 'Wisata & Tour Lombok',
       subtitle: lang === 'EN' ? 'Highlands, Waterfalls & Beaches' : 'Eksplorasi Destinasi Populer Bersama Keluarga/Rombongan',
       description: lang === 'EN'
         ? 'Dedicated transportation to explore popular destinations in Lombok, perfect for both private individual trips and family/group vacations.'
@@ -93,7 +101,9 @@ export default function ExtraServices({ lang, onOneWayClick }: ExtraServicesProp
         lang === 'EN' ? 'Local Driver with Destination Insights' : 'Driver Lokal yang Mengetahui Spot Terbaik & Rekomendasi Kuliner'
       ],
       priceText: lang === 'EN' ? 'Contact via WhatsApp' : 'Hubungi via WhatsApp',
-      waMessage: 'Halo Rinjani Transport, saya ingin konsultasi paket Wisata & Tour Lombok untuk keluarga/rombongan. Mohon rekomendasi rutenya.'
+      waMessage: lang === 'EN'
+        ? 'Hello Rinjani Transport, I would like to consult about Lombok Tour & Sightseeing packages for family/group. Please share route recommendations.'
+        : 'Halo Rinjani Transport, saya ingin konsultasi paket Wisata & Tour Lombok untuk keluarga/rombongan. Mohon rekomendasi rutenya.'
     }
   ];
 

@@ -29,8 +29,14 @@ export default function App() {
   const [showOneWayModal, setShowOneWayModal] = useState(false);
   const [lang, setLang] = useState<'ID' | 'EN'>(() => {
     try {
-      const saved = localStorage.getItem('rinjani_lang');
-      return saved === 'ID' || saved === 'EN' ? saved : 'EN';
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang')?.toUpperCase();
+      if (urlLang === 'EN' || urlLang === 'ID') return urlLang;
+
+      const saved = localStorage.getItem('rinjani_user_lang_v2');
+      if (saved === 'ID') return 'ID';
+
+      return 'EN'; // English is the PRIMARY language by default
     } catch {
       return 'EN';
     }
@@ -39,11 +45,19 @@ export default function App() {
   const handleLanguageChange = (newLang: 'ID' | 'EN') => {
     setLang(newLang);
     try {
+      localStorage.setItem('rinjani_user_lang_v2', newLang);
       localStorage.setItem('rinjani_lang', newLang);
     } catch {
       // ignore
     }
   };
+
+  useEffect(() => {
+    document.documentElement.lang = lang === 'EN' ? 'en' : 'id';
+    document.title = lang === 'EN'
+      ? 'Rinjani Transport - Lombok Car Rental, Airport Transfer & Tour Service'
+      : 'Rinjani Transport - Jasa Transportasi, Rental Mobil & Tour Wisata Lombok';
+  }, [lang]);
   
   const t = TRANSLATIONS[lang];
 

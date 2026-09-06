@@ -3,16 +3,20 @@ export interface Car {
   name: string;
   nameAr?: string;
   category: string;
+  categoryEn?: string;
   pricePerDay: number; // in IDR
   priceDisplay?: string; // custom price text
+  priceDisplayEn?: string;
   image: string;
   seats: number;
   transmission: 'Automatic' | 'Manual' | 'Matic' | 'Manual/Matic';
   fuel: string;
   fuelAr?: string;
   includeList: string[];
+  includeListEn?: string[];
   includeListAr?: string[];
   description: string;
+  descriptionEn?: string;
   descriptionAr?: string;
   rating: number;
   reviewsCount: number;
