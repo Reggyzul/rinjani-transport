@@ -65,7 +65,7 @@ export default function ToursList({ lang, isLanding = false, onViewAllTours }: T
               }`}
             >
               <Filter className="w-3.5 h-3.5" />
-              <span>{lang === 'EN' ? 'All Packages (9)' : 'Semua Paket (9)'}</span>
+              <span>{lang === 'EN' ? `All Packages (${TOUR_PACKAGES.length})` : `Semua Paket (${TOUR_PACKAGES.length})`}</span>
             </button>
 
             <button
@@ -77,7 +77,7 @@ export default function ToursList({ lang, isLanding = false, onViewAllTours }: T
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>{lang === 'EN' ? 'Flagship Packages (4)' : 'Paket Tour Utama (4)'}</span>
+              <span>{lang === 'EN' ? `Flagship Packages (${TOUR_PACKAGES.filter(p => p.category === 'flagship').length})` : `Paket Tour Utama (${TOUR_PACKAGES.filter(p => p.category === 'flagship').length})`}</span>
             </button>
 
             <button
@@ -89,7 +89,7 @@ export default function ToursList({ lang, isLanding = false, onViewAllTours }: T
               }`}
             >
               <MapPin className="w-3.5 h-3.5" />
-              <span>{lang === 'EN' ? 'Nature Day Tours (5)' : 'Destinasi Wisata Alam (5)'}</span>
+              <span>{lang === 'EN' ? `Nature Day Tours (${TOUR_PACKAGES.filter(p => p.category === 'nature').length})` : `Destinasi Wisata Alam (${TOUR_PACKAGES.filter(p => p.category === 'nature').length})`}</span>
             </button>
           </div>
         )}

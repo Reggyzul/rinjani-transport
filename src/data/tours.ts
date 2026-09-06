@@ -812,6 +812,69 @@ export const TOUR_PACKAGES: TourPackage[] = [
       { title: '15:00 | Pengantaran Pulang', desc: 'Kembali menuju hotel Anda.' }
     ],
     waMessage: 'Halo Rinjani Transport, saya ingin reservasi tour Monkey Forest Tetebatu. Mohon info penawaran harganya.'
+  },
+
+  // 10. LOMBOK WILDLIFE PARK (Destinasi Wisata Satwa & Alam)
+  {
+    id: 'lombok-wildlife-park',
+    title: 'Lombok Wildlife Park Tour',
+    titleEn: 'Lombok Wildlife Sanctuary & Park Tour',
+    category: 'nature',
+    priceText: 'Hubungi untuk Penawaran Terbaik',
+    priceTextEn: 'Contact for Best Offer',
+    numericPrice: 0,
+    duration: '1 Hari (Full Day)',
+    durationEn: '1 Day (Full Day)',
+    badge: 'WISATA SATWA & KELUARGA',
+    image: '/tour_lombok_wildlife.jpg',
+    description: 'Kunjungi suaka satwa interaktif terlengkap di Lombok yang berlokasi di kawasan Sire, Tanjung. Nikmati pengalaman berinteraksi langsung dengan gajah jinak, memberi makan burung tropis eksotis di kubah aviary, serta melihat orangutan, beruang madu, dan beragam fauna dalam suasana konservasi tropis yang asri.',
+    descriptionEn: 'Visit the premier interactive wildlife sanctuary in Lombok located in Sire, Tanjung. Experience intimate encounters with gentle Asian elephants, feed exotic tropical birds in a walk-in aviary, and observe orangutans, sun bears, and rare wildlife in a lush botanical conservation park.',
+    highlights: [
+      'Interaksi langsung dan memberi makan gajah Asia jinak (Asian Elephant Sanctuary)',
+      'Kubah sangkar burung tropis (Walk-in Aviary) dengan kakatua, makaw, dan nuri warna-warni',
+      'Melihat orangutan, beruang madu, binturong, kura-kura raksasa, dan fauna eksotis lainnya',
+      'Destinasi edukatif terbaik yang sangat ramah untuk keluarga, anak-anak, dan pencinta satwa',
+      'Kawasan suaka botani yang sejuk, asri, dan terawat di pesisir utara Lombok (dekat Pantai Sire)'
+    ],
+    highlightsEn: [
+      'Close-up interaction and hand-feeding experience with gentle Asian elephants',
+      'Walk-in tropical aviary with vibrant macaws, cockatoos, hornbills, and parrots',
+      'Encounter orangutans, sun bears, binturongs, giant tortoises, and exotic reptiles',
+      'Top-rated educational and family-friendly sanctuary suitable for all ages',
+      'Lush botanical gardens in North Lombok near scenic Sire Beach'
+    ],
+    included: [
+      'Mobil Privat Ber-AC Bersih dan Driver Lokal Ramah',
+      'Bahan Bakar Minyak (BBM) dan Biaya Parkir',
+      'Air Mineral Selama Perjalanan',
+      'Layanan Antar-Jemput Hotel (Senggigi, Mataram, Bangsal, dsb.)'
+    ],
+    includedEn: [
+      'Clean Private AC Vehicle with Experienced Local Driver',
+      'Fuel and Destination Parking Fees',
+      'Mineral Water throughout the Tour',
+      'Hotel Door-to-Door Pick-up and Drop-off'
+    ],
+    excluded: [
+      'Tiket Masuk Lombok Wildlife Park & Program Khusus (Mandi Gajah / Elephant Bathing)',
+      'Makan Siang dan Pengeluaran Pribadi',
+      'Tips Sukarela untuk Driver'
+    ],
+    excludedEn: [
+      'Lombok Wildlife Park Admission Tickets & Special Programs (Elephant Bathing)',
+      'Lunch and Personal Expenses',
+      'Driver Gratuity'
+    ],
+    packageTiers: COMMON_PACKAGE_TIERS,
+    itinerary: [
+      { title: '08:30 | Penjemputan di Hotel', desc: 'Driver kami siap menjemput Anda dengan nyaman di hotel atau akomodasi di Lombok.' },
+      { title: '10:00 | Tiba di Lombok Wildlife Park', desc: 'Tiba di kawasan suaka alam Sire, Tanjung dan memulai tur interaktif satwa terlindung.' },
+      { title: '10:15 | Elephant & Aviary Encounter', desc: 'Interaksi memberi makan gajah jinak, foto bersama burung makaw warna-warni di kubah aviary terbuka.' },
+      { title: '12:30 | Santap Siang', desc: 'Makan siang santai di restoran suaka atau singgah di cafe pesisir Pantai Sire (opsional / personal).' },
+      { title: '14:00 | Singgah di Viewpoint Malimbu / Sire', desc: 'Menikmati panorama pesisir pantai berpasir putih dan pemandangan laut Lombok yang menawan.' },
+      { title: '15:30 | Pengantaran Kembali ke Hotel', desc: 'Perjalanan kembali dengan aman dan nyaman menuju hotel Anda.' }
+    ],
+    waMessage: 'Halo Rinjani Transport, saya tertarik dengan paket tour Lombok Wildlife Park. Mohon informasi ketersediaan armada dan penawaran harganya.'
   }
 ];
 
