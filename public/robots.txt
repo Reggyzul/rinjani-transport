@@ -14,4 +14,4 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap Index Location
-Sitemap: https://rinjani-transport.pages.dev/sitemap.xml
+Sitemap: https://rinjanitransports.com/sitemap.xml
