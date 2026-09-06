@@ -14,6 +14,7 @@ import GallerySection from './components/GallerySection';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import OneWayModal from './components/OneWayModal';
+import FaqSection from './components/FaqSection';
 import { Car } from './types';
 import { CARS } from './data/cars';
 import { ChevronUp } from 'lucide-react';
@@ -73,7 +74,7 @@ export default function App() {
 
       // Track active section on home page
       if (currentPage === 'home') {
-        const sections = ['home', 'cars', 'tours', 'extra-services', 'contact'];
+        const sections = ['home', 'cars', 'tours', 'extra-services', 'faq', 'contact'];
         const scrollPosition = window.scrollY + 250; // Offset
 
         for (const section of sections) {
@@ -180,6 +181,9 @@ export default function App() {
 
             {/* 4. Section: Layanan Tambahan */}
             <ExtraServices lang={lang} onOneWayClick={() => setShowOneWayModal(true)} />
+
+            {/* 5. Section: SEO FAQ & Travel Guide */}
+            <FaqSection lang={lang} />
           </>
         ) : currentPage === 'about' ? (
           <div className="pt-24 sm:pt-28">
