@@ -113,7 +113,15 @@ export default function About({ lang }: AboutProps) {
 
               {/* Highlight badge at bottom */}
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-                <span>Dusun Karang Ancak Barat, Lombok</span>
+                <a 
+                  href="https://www.google.com/maps?q=-8.2610326,116.4259218&z=17&hl=id" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-luxury-gold transition-colors flex items-center gap-1 group"
+                  title="Lihat titik lokasi di Google Maps"
+                >
+                  <span className="group-hover:underline underline-offset-2">Dusun Karang Ancak Barat, Lombok</span>
+                </a>
                 <span className="text-luxury-gold font-semibold">24/7 Service</span>
               </div>
             </div>

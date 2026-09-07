@@ -47,10 +47,16 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
             </p>
 
             <div className="text-xs text-gray-400 font-sans space-y-2.5">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5" />
-                <span>{t.footer_office}</span>
-              </div>
+              <a 
+                href="https://www.google.com/maps?q=-8.2610326,116.4259218&z=17&hl=id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-luxury-gold transition-colors group"
+                title="Buka lokasi di Google Maps"
+              >
+                <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <span className="group-hover:underline underline-offset-2">{t.footer_office}</span>
+              </a>
               <p>©2026 Rinjani Transport. {t.footer_rights}</p>
             </div>
           </div>
@@ -131,11 +137,11 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
               </div>
             </div>
 
-            {/* Google Map Embed (Lombok) */}
+            {/* Google Map Embed (New Coordinates) */}
             <div className="pt-2">
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg w-full h-36 bg-white/5">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg w-full h-36 bg-white/5 relative group">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252445.6568972844!2d116.1438902!3d-8.5830695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb70e70b33b09%3A0xb35a0f12c1b827e8!2sLombok%2C%20West%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                  src="https://maps.google.com/maps?q=-8.2610326,116.4259218&z=17&hl=id&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -144,6 +150,16 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Rinjani Transport Lombok Location Map"
                 ></iframe>
+                <a
+                  href="https://www.google.com/maps?q=-8.2610326,116.4259218&z=17&hl=id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 right-2 bg-luxury-black/90 hover:bg-black text-luxury-gold hover:text-white text-[10px] font-display font-bold px-2.5 py-1 rounded-lg border border-luxury-gold/30 shadow transition-all flex items-center gap-1 backdrop-blur-sm"
+                  title="Buka titik lokasi di Google Maps"
+                >
+                  <MapPin className="w-3 h-3" />
+                  <span>Buka Google Maps</span>
+                </a>
               </div>
             </div>
 
