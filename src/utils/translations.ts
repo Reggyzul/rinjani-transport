@@ -147,6 +147,8 @@ export const TRANSLATIONS = {
     footer_follow_desc: "Hubungi kami untuk informasi rute wisata Sembalun, Tetebatu, air terjun, dan pantai di Lombok:",
     footer_rights: "Semua Hak Dilindungi.",
     footer_disclaimer: "Website ini merupakan portal reservasi resmi Rinjani Transport Lombok. Semua nama merek kendaraan dan logo adalah hak milik dari produsen masing-masing.",
+    footer_tripadvisor_tag: "Ulasan Resmi Wisatawan",
+    footer_tripadvisor_action: "Lihat Ulasan",
 
     // Float buttons
     float_whatsapp_title: "Chat WhatsApp",
@@ -300,6 +302,8 @@ export const TRANSLATIONS = {
     footer_follow_desc: "Get in touch for the latest tour information on Sembalun, Tetebatu, waterfalls, and Lombok beaches:",
     footer_rights: "All Rights Reserved.",
     footer_disclaimer: "This website is the official reservation portal for Rinjani Transport Lombok. All vehicle trademarks and logos belong to their respective manufacturers.",
+    footer_tripadvisor_tag: "Official Review Partner",
+    footer_tripadvisor_action: "Read Reviews",
 
     // Float buttons
     float_whatsapp_title: "WhatsApp Chat",

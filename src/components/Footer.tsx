@@ -1,5 +1,5 @@
 import React from 'react';
-import { Headset, Phone, MapPin, Instagram } from 'lucide-react';
+import { Headset, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { TRANSLATIONS } from '../utils/translations';
 import { openWhatsApp, DEFAULT_WA_NUMBER } from '../utils/whatsapp';
 
@@ -57,7 +57,42 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
                 <MapPin className="w-4.5 h-4.5 text-luxury-gold shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <span className="group-hover:underline underline-offset-2">{t.footer_office}</span>
               </a>
-              <p>©2026 Rinjani Transport. {t.footer_rights}</p>
+            </div>
+
+            {/* TripAdvisor Official Badge & Direct Link */}
+            <div className="pt-2">
+              <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-2 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#00AA6C] animate-pulse"></span>
+                <span className="text-gray-300">{t.footer_tripadvisor_tag}</span>
+              </div>
+              <a 
+                href="https://www.tripadvisor.co.id/Attraction_Review-g3475390-d10770373-Reviews-Rinjani_Transport-Senaru_Lombok_West_Nusa_Tenggara.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-white hover:bg-slate-50 text-gray-900 px-4 py-2.5 rounded-2xl shadow-xl border border-white/20 hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
+                title="Buka ulasan resmi Rinjani Transport di TripAdvisor"
+              >
+                <img 
+                  src="/tripadvisor.svg" 
+                  alt="Tripadvisor Official Logo" 
+                  className="h-6 sm:h-7 w-auto object-contain shrink-0" 
+                />
+                <div className="h-7 w-px bg-gray-200 shrink-0" />
+                <div className="flex flex-col text-left shrink-0">
+                  <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-0.5 text-[#00AA6C]">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="w-2 h-2 rounded-full bg-[#00AA6C] inline-block shadow-xs" />
+                      ))}
+                    </div>
+                    <span className="text-xs font-bold text-gray-800 ml-0.5">5.0</span>
+                  </div>
+                  <span className="text-[10px] text-gray-500 font-medium">
+                    {t.footer_tripadvisor_action}
+                  </span>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#00AA6C] transition-colors ml-1 shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </div>
           </div>
 
@@ -169,8 +204,22 @@ export default function Footer({ onNavClick, lang }: FooterProps) {
 
         {/* Bottom copyright line */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
-          <p>©2026 Rinjani Transport. {t.footer_rights}</p>
-          <p className="text-gray-400">{t.footer_disclaimer}</p>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <p>©2026 Rinjani Transport. {t.footer_rights}</p>
+            <span className="hidden sm:inline text-gray-700">•</span>
+            <a 
+              href="https://www.tripadvisor.co.id/Attraction_Review-g3475390-d10770373-Reviews-Rinjani_Transport-Senaru_Lombok_West_Nusa_Tenggara.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-gray-400 hover:text-[#00AA6C] transition-colors group cursor-pointer"
+              title="Official Tripadvisor Page"
+            >
+              <img src="/tripadvisor-icon.svg" alt="Tripadvisor Icon" className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+              <span className="group-hover:underline underline-offset-2 font-medium">Tripadvisor</span>
+              <ExternalLink className="w-3 h-3 text-gray-500 group-hover:text-[#00AA6C]" />
+            </a>
+          </div>
+          <p className="text-gray-400 text-center sm:text-right">{t.footer_disclaimer}</p>
         </div>
 
       </div>
